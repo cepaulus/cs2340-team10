@@ -75,7 +75,6 @@ public class LoginController extends HttpServlet {
 		
 		RiskMockUtil.restoreDefaults();
 		players = new ArrayList<Player>();
-		System.out.println(players.toString());
 		request.setAttribute("players", players);
 		RequestDispatcher dispatcher = 
 				getServletContext().getRequestDispatcher("/login.jsp");

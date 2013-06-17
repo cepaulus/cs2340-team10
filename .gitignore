@@ -1,9 +1,9 @@
 /bin
 /target
+/resources/json/player
 
 .DS_Store
 .settings
 
 *.class
-*.json
 
