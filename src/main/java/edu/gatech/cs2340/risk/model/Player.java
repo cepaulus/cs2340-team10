@@ -15,10 +15,9 @@ public class Player {
 	private int playerId;
 	private ArrayList<Territory> territories;
 	private ArrayList<Army> armies;
-	private int armyCount; //TODO necessary?
-	private Color playerColor; //TODO randomly generate?
-	private Random randGen = new Random();
 	private int rollOrder;
+	private Color playerColor; 
+	
 
 	public Player( int playerId, String playerName) {
 		this.playerId = playerId;
@@ -71,14 +70,6 @@ public class Player {
 		armies.add(army);
 	}
 
-	public int getArmyCount() {
-		return armyCount;
-	}
-
-	public void setArmyCount(int armyCount) {
-		this.armyCount = armyCount;
-	}
-
 	public void setRollOrder(int rollOrder) {
 		this.rollOrder = rollOrder;
 	}        	
@@ -86,6 +77,14 @@ public class Player {
 	public int getRollOrder() {
 		return rollOrder;
 	}
+	public Color getPlayerColor() {
+		return playerColor;
+	}
+
+	public void setPlayerColor(Color playerColor) {
+		this.playerColor = playerColor;
+	}
+
 	@Override
 	public String toString() {
 		return "[Name: " + playerName + ", ID: " + playerId + "]";

@@ -16,7 +16,6 @@ import main.java.edu.gatech.cs2340.risk.service.PlayerService;
  */
 public class PlayerServiceImpl implements PlayerService {
 	
-	//private PlayerDAOImpl playerDAO = new PlayerDAOImpl();
 	private PlayerDAOMock playerDAO = new PlayerDAOMock();
 
 	@Override
@@ -31,26 +30,18 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	@Override
-	public Player addPlayer(Player player) {
-		try {
-			return playerDAO.addPlayer(player);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO handle exceptions
-			e.printStackTrace();
-			return null;
-		}
+	public Player addPlayer(Player player) 
+			throws ClassNotFoundException, SQLException {
+
+		return playerDAO.addPlayer(player);
+
 	}
 
 	@Override
-	public Player deletePlayer(int playerId) {
-		try {
-			return playerDAO.deletePlayer(playerId);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-		
+	public Player deletePlayer(int playerId) 
+			throws ClassNotFoundException, SQLException {
+			
+		return playerDAO.deletePlayer(playerId);
 	}
 
 

@@ -2,6 +2,7 @@ package edu.gatech.cs2340.risk.service;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import main.java.edu.gatech.cs2340.risk.exception.PackageNotFoundException;
@@ -31,11 +32,15 @@ public class PlayerTest {
 		Player anna = new Player(3, "Anna");
 		Player david = new Player(4, "David");
 
-		rebecca = playerService.addPlayer(rebecca);
-		john  = playerService.addPlayer(john);
-		anna = playerService.addPlayer(anna);
-		david = playerService.addPlayer(david);
-
+		try {
+			rebecca = playerService.addPlayer(rebecca);
+			john  = playerService.addPlayer(john);
+			anna = playerService.addPlayer(anna);
+			david = playerService.addPlayer(david);
+		}
+		catch (SQLException | ClassNotFoundException e) {
+			// error handle?
+		}
 		ArrayList<Player> players = new ArrayList<Player>();
 		players.add(rebecca);
 		players.add(john);

@@ -8,14 +8,24 @@ import java.util.ArrayList;
  */
 public class Country {
 	
+	private int countryId;
 	private String countryName;
 	private ArrayList<Territory> territories;
 	private Player owner;
 	
-	public Country(String countryName, ArrayList<Territory> territories) {
+	public Country(int countryId, String countryName, ArrayList<Territory> territories) {
+		this.setCountryId(countryId);
 		this.setCountryName(countryName);
 		this.setTerritories(territories);
 		setOwner(null);
+	}
+
+	public int getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(int countryId) {
+		this.countryId = countryId;
 	}
 
 	public String getCountryName() {

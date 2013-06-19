@@ -1,0 +1,10 @@
+{
+	"countryId": 2,
+	"countryName": "South America",
+	"territories": [
+		{ "territoryId": 10, "territoryName":"Argentina"},
+		{ "territoryId": 11, "territoryName":"Brazil"},
+		{ "territoryId": 12, "territoryName":"Peru"},
+		{ "territoryId": 13, "territoryName":"Venezuela"}
+	]
+}

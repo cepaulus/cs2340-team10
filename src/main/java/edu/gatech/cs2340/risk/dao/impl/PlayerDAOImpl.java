@@ -16,7 +16,6 @@ import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
  *
  */
 public class PlayerDAOImpl implements PlayerDAO {
-	
 
 	@Override
 	public ArrayList<Player> getPlayers() throws SQLException, ClassNotFoundException {

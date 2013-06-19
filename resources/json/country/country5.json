@@ -1,0 +1,18 @@
+{
+	"countryId": 5,
+	"countryName": "Asia",
+	"territories": [
+		{ "territoryId": 27, "territoryName":"Afghanistan"},
+		{ "territoryId": 28, "territoryName":"China"},
+		{ "territoryId": 29, "territoryName":"India"},
+		{ "territoryId": 30, "territoryName":"Irkutsk"},
+		{ "territoryId": 31, "territoryName":"Japan"},
+		{ "territoryId": 32, "territoryName":"Kamchatka"},
+		{ "territoryId": 33, "territoryName":"Middle East"},
+		{ "territoryId": 34, "territoryName":"Mongolia"},
+		{ "territoryId": 35, "territoryName":"Siam"},
+		{ "territoryId": 36, "territoryName":"Siberia"},
+		{ "territoryId": 37, "territoryName":"Ural"},
+		{ "territoryId": 38, "territoryName":"Yakutsk"}
+	]
+}

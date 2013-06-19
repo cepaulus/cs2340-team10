@@ -33,7 +33,7 @@ public class PlayerUtil {
 			}
 		});
 		for (int i = 0; i < players.size(); i++) {
-			players.get(i).setRollOrder(i);
+			players.get(i).setRollOrder(i + 1);
 		}
 		return players;
 	}

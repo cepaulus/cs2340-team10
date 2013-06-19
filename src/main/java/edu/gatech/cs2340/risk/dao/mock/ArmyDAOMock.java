@@ -27,10 +27,4 @@ public class ArmyDAOMock implements ArmyDAO {
 		return players;
 	}
 
-	@Override
-	public Player addArmies(Player player) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -1,6 +1,7 @@
 package main.java.edu.gatech.cs2340.risk.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,9 +53,15 @@ public class LoginController extends HttpServlet {
 		} else {
 			String name = request.getParameter("name");
 			
-			Player player = new Player(players.size(), name);
+			Player player = new Player(players.size() + 1, name);
 			player.setRollOrder(PlayerUtil.rollDie());
-			playerService.addPlayer(player);
+			
+			try {
+				playerService.addPlayer(player);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO add error handling
+				e.printStackTrace();
+			}
 			players.add(player); 
 
 			// send the updated list back to login.jsp
@@ -91,7 +98,13 @@ public class LoginController extends HttpServlet {
 		String name = (String) request.getParameter("name");
 		int id = getId(request);
 		
-		Player player = playerService.addPlayer(new Player(id, name));
+		Player player = null;
+		try {
+			player = playerService.addPlayer(new Player(id, name));
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO add error handling
+			e.printStackTrace();
+		}
 		players.add(player);
 		request.setAttribute("players", players);
 		RequestDispatcher dispatcher = 
@@ -106,7 +119,12 @@ public class LoginController extends HttpServlet {
 		int id = getId(request);
 		players.remove(id);
 		// delete player from database
-		playerService.deletePlayer(id);
+		try {
+			playerService.deletePlayer(id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// Add error handling
+			e.printStackTrace();
+		}
 		request.setAttribute("players", players);
 		RequestDispatcher dispatcher = 
 				getServletContext().getRequestDispatcher("/login.jsp");

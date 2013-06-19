@@ -12,6 +12,11 @@ import main.java.edu.gatech.cs2340.risk.model.Army;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
 
+/**
+ * 
+ * @author Caroline Paulus
+ *
+ */
 public class ArmyDAOImpl implements ArmyDAO {
 
 	@Override
@@ -40,12 +45,6 @@ public class ArmyDAOImpl implements ArmyDAO {
 		conn.close();
 		
 		return players;
-	}
-
-	@Override
-	public Player addArmies(Player player) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.java.edu.gatech.cs2340.risk.model.Country;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.service.impl.ArmyServiceImpl;
+import main.java.edu.gatech.cs2340.risk.service.impl.CountryServiceImpl;
 import main.java.edu.gatech.cs2340.risk.service.impl.PlayerServiceImpl;
 import main.java.edu.gatech.cs2340.risk.util.PlayerUtil;
 import main.java.edu.gatech.cs2340.risk.util.RiskDatabaseUtil;
@@ -28,7 +30,10 @@ public class AppController extends HttpServlet {
 	//private static Logger log = Logger.getLogger(AppServlet.class);
 	private PlayerServiceImpl playerService = new PlayerServiceImpl();
 	private ArmyServiceImpl armyService = new ArmyServiceImpl();
+	private CountryServiceImpl countryService = new CountryServiceImpl();
+	
 	private ArrayList<Player> players; 
+	private ArrayList<Country> countries;
 
 	protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
@@ -38,6 +43,10 @@ public class AppController extends HttpServlet {
 		players = PlayerUtil.setPlayerOrder(players);
 		players = armyService.addArmies(players);
 		request.setAttribute("players", players);
+		
+		countries = countryService.getCountries();
+		request.setAttribute("countries", countries);
+		
         RequestDispatcher dispatcher = 
             getServletContext().getRequestDispatcher("/app.jsp");
         dispatcher.forward(request,response);

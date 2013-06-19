@@ -24,7 +24,7 @@ public class PlayerDAOMock implements PlayerDAO {
 		int numPlayers = RiskMockUtil.getFileCountInPackage("player");
 		System.out.println("Current player count in player json package: " + numPlayers);
 		
-		for (int i = 0; i < numPlayers; i++) {
+		for (int i = 1; i <= numPlayers; i++) {
 			String fileName = PLAYER_JSON + i + ".json";  
 			Player player = (Player) RiskMockUtil.convertJsonFileToObject(fileName, Player.class);
 			players.add(player);
