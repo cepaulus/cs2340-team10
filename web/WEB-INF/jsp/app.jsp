@@ -70,42 +70,42 @@
 <% if (players.get(0).getTerritories().contains(territory)) { %>
 	<div id="player1">
   <form action="/app" method="POST">
-     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
    </div>
 <% } %>
 <% if (players.get(1).getTerritories().contains(territory)) { %>
 <div id="player2">
  <form action="/app" method="POST">
-     <a href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
  </div>
 <% } %>
 <% if (players.get(2).getTerritories().contains(territory)) { %>
 	<div id="player3">
   <form action="/app" method="POST">
-     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
    </div>
 <% } %>
 <% if ( players.size() >= 4 && players.get(3).getTerritories().contains(territory) ) { %>
 	<div id="player4">
   <form action="/app" method="POST">
-     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
    </div>
 <% } %>
 <% if ( players.size() >= 5 && players.get(4).getTerritories().contains(territory) ) { %>
 	<div id="player5">
   <form action="/app" method="POST">
-     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
    </div>
 <% } %>
 <% if ( players.size() == 6 && players.get(5).getTerritories().contains(territory) ) { %>
 	<div id="player6">
   <form action="/app" method="POST">
-     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.getTerritoryName()%></a>
+     <a  href="javascript:;" onclick="parentNode.submit();"><%=territory.toString()%></a>
    </form>
    </div>
 <% } %>
