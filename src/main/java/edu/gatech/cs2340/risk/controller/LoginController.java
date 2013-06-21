@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.service.impl.PlayerServiceImpl;
 import main.java.edu.gatech.cs2340.risk.util.PlayerUtil;
@@ -24,7 +26,8 @@ import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
 @WebServlet("")
 public class LoginController extends HttpServlet {
 
-	//private static Logger log = Logger.getLogger(RiskServlet.class); 
+	private static Logger log = Logger.getLogger(LoginController.class); 
+	
 	private AppController appController = new AppController();
 	private PlayerServiceImpl playerService = new PlayerServiceImpl();
 	ArrayList<Player> players = new ArrayList<Player>();
@@ -54,6 +57,7 @@ public class LoginController extends HttpServlet {
 			String name = request.getParameter("name");
 			
 			Player player = new Player(players.size() + 1, name);
+			log.debug("Creating player " + player);
 			player.setRollOrder(PlayerUtil.rollDie());
 			
 			try {
@@ -94,7 +98,7 @@ public class LoginController extends HttpServlet {
 	protected void doPut(HttpServletRequest request,
 			HttpServletResponse response)
 					throws IOException, ServletException {
-		System.out.println("In doPut()");
+		log.debug("In doPut()");
 		String name = (String) request.getParameter("name");
 		int id = getId(request);
 		
@@ -115,7 +119,7 @@ public class LoginController extends HttpServlet {
 	protected void doDelete(HttpServletRequest request,
 			HttpServletResponse response)
 					throws IOException, ServletException {
-		System.out.println("In doDelete()");
+		log.debug("In doDelete()");
 		int id = getId(request);
 		players.remove(id);
 		// delete player from database

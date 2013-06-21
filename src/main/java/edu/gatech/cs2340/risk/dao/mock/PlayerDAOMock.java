@@ -3,15 +3,20 @@ package main.java.edu.gatech.cs2340.risk.dao.mock;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import main.java.edu.gatech.cs2340.risk.dao.PlayerDAO;
 import main.java.edu.gatech.cs2340.risk.exception.PackageNotFoundException;
 import main.java.edu.gatech.cs2340.risk.model.Player;
+import main.java.edu.gatech.cs2340.risk.util.RiskDatabaseUtil;
 import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
 /**
  * @author Caroline Paulus
  *
  */
 public class PlayerDAOMock implements PlayerDAO {
+	
+	private static Logger log = Logger.getLogger(PlayerDAOMock.class);
 	
 	private static final String PLAYER_JSON = "player/player";
 
@@ -22,7 +27,7 @@ public class PlayerDAOMock implements PlayerDAO {
 		
 		// get existing number of players in player package
 		int numPlayers = RiskMockUtil.getFileCountInPackage("player");
-		System.out.println("Current player count in player json package: " + numPlayers);
+		log.debug("Current player count in player json package: " + numPlayers);
 		
 		for (int i = 1; i <= numPlayers; i++) {
 			String fileName = PLAYER_JSON + i + ".json";  
@@ -44,11 +49,11 @@ public class PlayerDAOMock implements PlayerDAO {
 		
 		// create file for new player
 		String newFile = PLAYER_JSON + player.getPlayerId() + ".json";
-		System.out.println("Creating new json file for player at " + newFile);
+		log.debug("Creating new json file for player at " + newFile);
 		RiskMockUtil.createFileFromJson(newFile, player);
 		
 		// return player
-		System.out.println("Returning player " + player);
+		log.debug("Returning player " + player);
 		return player;
 	}
 

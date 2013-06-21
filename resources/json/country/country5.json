@@ -1,6 +1,7 @@
 {
 	"countryId": 5,
 	"countryName": "Asia",
+	"pointValue": 7,
 	"territories": [
 		{ "territoryId": 27, "territoryName":"Afghanistan"},
 		{ "territoryId": 28, "territoryName":"China"},

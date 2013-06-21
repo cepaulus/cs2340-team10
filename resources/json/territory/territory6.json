@@ -1,5 +1,6 @@
 {
 	"territoryId": 6,
 	"territoryName": "Northwest Territory",
-	"country": { "countryId": 1, "countryName": "North America" }		
+	"country": { "countryId": 1, "countryName": "North America" },
+	"numberOfArmies": 1	
 }

@@ -5,9 +5,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
+import org.apache.log4j.Logger;
+
+import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 
 public class PlayerUtil {
+	
+	private static Logger log = Logger.getLogger(PlayerUtil.class);
 	
 	private static final Random RANDOM = new Random();
 	

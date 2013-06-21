@@ -1,6 +1,7 @@
 {
 	"countryId": 3,
 	"countryName": "Africa",
+	"pointValue": 3,
 	"territories": [
 		{ "territoryId": 14, "territoryName":"Congo"},
 		{ "territoryId": 15, "territoryName":"East Africa"},

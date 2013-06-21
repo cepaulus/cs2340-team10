@@ -2,6 +2,7 @@ package main.java.edu.gatech.cs2340.risk.dao;
 
 import java.util.ArrayList;
 
+import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 
 /**
@@ -29,5 +30,19 @@ public interface TerritoryDAO {
 	 * @return
 	 */
 	public Territory getTerritory(int territoryId);
+	/**
+	 * Adds a randomly selected set of territories to each player and returns all players
+	 * 
+	 * @param players
+	 * @return
+	 */
+	public ArrayList<Player> addTerritories(ArrayList<Player> players);
+	/**
+	 * Adds a randomly selected set of territories to the player and returns it
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public Player addTerritories(Player player);
 
 }

@@ -1,6 +1,7 @@
 {
 	"countryId": 1,
 	"countryName": "North America",
+	"pointValue": 5,
 	"territories": [
 		{ "territoryId": 1, "territoryName":"Alaska"},
 		{ "territoryId": 2, "territoryName":"Alberta"},

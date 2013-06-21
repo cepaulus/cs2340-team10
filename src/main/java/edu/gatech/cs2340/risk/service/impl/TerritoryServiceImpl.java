@@ -3,6 +3,7 @@ package main.java.edu.gatech.cs2340.risk.service.impl;
 import java.util.ArrayList;
 
 import main.java.edu.gatech.cs2340.risk.dao.mock.TerritoryDAOMock;
+import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.service.TerritoryService;
 
@@ -27,6 +28,16 @@ public class TerritoryServiceImpl implements TerritoryService {
 	@Override
 	public Territory getTerritory(int territoryId) {
 		return territoryDAO.getTerritory(territoryId);
+	}
+
+	@Override
+	public ArrayList<Player> addTerritories(ArrayList<Player> players) {
+		return territoryDAO.addTerritories(players);
+	}
+
+	@Override
+	public Player addTerritories(Player player) {
+		return territoryDAO.addTerritories(player);
 	}
 
 }

@@ -1,5 +1,6 @@
 {
 	"territoryId": 15,
 	"territoryName": "East Africa",
-	"country": { "countryId": 3, "countryName": "Africa" }	
+	"country": { "countryId": 3, "countryName": "Africa" },
+	"numberOfArmies": 1
 }

@@ -5,7 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 public class RiskDatabaseUtil {
+	
+	private static Logger log = Logger.getLogger(RiskDatabaseUtil.class);
 	
 	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	private static final String DB_NAME = "Risk_Database";
@@ -18,11 +22,11 @@ public class RiskDatabaseUtil {
 		try {
 			// try to create a new database 
 			createNewDatabase();
-			System.out.println("Successfully created database risk_database");
+			log.debug("Successfully created database risk_database");
 		}
 		catch (SQLException e) {
 			// assume that database already exists - SHOULD NOT (TODO- deal with this)
-			System.out.println("Risk_database already exists");
+			log.debug("Risk_database already exists");
 		} catch (InstantiationException e) {
 			// TODO add log statements
 			e.printStackTrace();
@@ -40,24 +44,24 @@ public class RiskDatabaseUtil {
 			ClassNotFoundException, SQLException {
 
 	      Class.forName(JDBC_DRIVER);
-	      System.out.println("Connecting to database...");
+	      log.debug("Connecting to database...");
 	      Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-	      System.out.println("Creating database...");
+	      log.debug("Creating database...");
 	      Statement stmt = conn.createStatement();
 	      
 	      String sql = "CREATE DATABASE " + DB_NAME +";";
 	      stmt.executeUpdate(sql);
-	      System.out.println("Database created successfully...");
+	      log.debug("Database created successfully...");
 	}
 	
 	public static void checkForExistingTable(String tableName) {
 		try {
 			createEmptyTableInDatabase(tableName);
-			System.out.println("Successfully created table " + tableName);
+			log.debug("Successfully created table " + tableName);
 		}
 		catch (SQLException e) {
 			// assume that table exists
-			System.out.println("Table " + tableName + " already exists");
+			log.debug("Table " + tableName + " already exists");
 		} catch (ClassNotFoundException e) {
 			// TODO do something here
 			e.printStackTrace();
@@ -100,12 +104,12 @@ public class RiskDatabaseUtil {
 	public static void deleteDatabaseIfExists() {
 		try {
 			deleteDatabase();
-			System.out.println("Successfully deleted database");
+			log.debug("Successfully deleted database");
 		}
 		catch (SQLException e) {
 			// assume database does not exist
 			e.printStackTrace();
-			System.out.println("Database does not exist");
+			log.error("Database does not exist");
 		} catch (ClassNotFoundException e) {
 			// TODO do something here
 			e.printStackTrace();

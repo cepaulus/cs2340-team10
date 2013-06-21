@@ -1,6 +1,7 @@
 {
 	"countryId": 4,
 	"countryName": "Europe",
+	"pointValue": 5,
 	"territories": [
 		{ "territoryId": 20, "territoryName":"Great Britain"},
 		{ "territoryId": 21, "territoryName":"Iceland"},

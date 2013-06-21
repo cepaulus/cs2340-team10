@@ -1,5 +1,6 @@
 {
 	"territoryId": 39,
 	"territoryName": "Eastern Australia",
-	"country": { "countryId": 6, "countryName": "Australia" }		
+	"country": { "countryId": 6, "countryName": "Australia" },
+	"numberOfArmies": 1	
 }

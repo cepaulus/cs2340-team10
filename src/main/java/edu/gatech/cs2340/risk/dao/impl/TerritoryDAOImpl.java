@@ -3,6 +3,7 @@ package main.java.edu.gatech.cs2340.risk.dao.impl;
 import java.util.ArrayList;
 
 import main.java.edu.gatech.cs2340.risk.dao.TerritoryDAO;
+import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 
 /**
@@ -25,6 +26,18 @@ public class TerritoryDAOImpl implements TerritoryDAO {
 
 	@Override
 	public Territory getTerritory(int territoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Player> addTerritories(ArrayList<Player> players) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Player addTerritories(Player player) {
 		// TODO Auto-generated method stub
 		return null;
 	}

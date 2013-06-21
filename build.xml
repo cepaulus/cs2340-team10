@@ -55,8 +55,14 @@
   	<copy  todir="${build.home}/WEB-INF/lib">
   	  	  <fileset dir="${basedir}/web/WEB-INF/lib"/>
   	</copy>
-  	<copy  todir="${build.home}">
-  	  	  <fileset dir="${basedir}/resources"/>
+  	<copy  todir="${build.home}/json">
+  	  	  <fileset dir="${basedir}/resources/json"/>
+  	</copy>
+  	<copy  todir="${build.home}/WEB-INF/classes">
+  	  	  <fileset dir="${basedir}/resources/logger"/>
+  	</copy>
+	<copy  todir="${build.home}/images">
+  	  	  <fileset dir="${basedir}/web/images"/>
   	</copy>
   </target>
 

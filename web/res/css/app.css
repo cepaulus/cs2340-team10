@@ -1,7 +1,77 @@
 /* Contains the CSS for the Risk Game page */
 body {
-	
+	/*background:url(/risk/images/riskmap.png) no-repeat;
+	position: relative;*/
+}
+
+.territoryButton {
+ 	background:none!important;
+    border:none; 
 }
 
 
-	
+#player1 {
+	color: #C11B17;
+}
+#player1 a:link {
+	color: #C11B17; text-decoration: none;
+}
+#player1 a:hover { 
+	color: #C11B17; text-decoration: underline; 
+}
+
+
+#player2 {
+	color: #006BE1;
+}
+#player2 a:link { 
+	color: #006BE1; text-decoration: none;
+}
+#player2 a:hover {
+	color: #006BE1; text-decoration: underline;
+}
+
+
+#player3 {
+	color: #249C00;
+}
+#player3 a:link {
+	color: #249C00; text-decoration: none; 
+}
+#player3 a:hover {
+	color: #249C00; text-decoration: underline; 
+}
+
+
+#player4 {
+	color: #FFD801;
+}
+#player4 a:link {
+	color: #FFD801; text-decoration: none; 
+}
+#player4 a:hover {
+	color: #FFD801; text-decoration: underline; 
+}
+
+
+#player5 {
+	color: #6C2DC7;
+}
+#player5 a:link {
+	color: #6C2DC7; text-decoration: none; 
+}
+#player5 a:hover {
+	color: #6C2DC7; text-decoration: underline; 
+}
+
+
+#player6 {
+	color: #FF8A21;
+}
+#player6 a:link {
+	color: #FF8A21; text-decoration: none; 
+}
+#player6 a:hover {
+	color: #FF8A21; text-decoration: underline; 
+}
+

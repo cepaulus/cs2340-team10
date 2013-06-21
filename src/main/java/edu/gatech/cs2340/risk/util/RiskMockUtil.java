@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 
 public class RiskMockUtil {
 
-	// private static Logger log = Logger.getLogger(RiskUtilMock.class);
+	private static Logger log = Logger.getLogger(RiskMockUtil.class);
 
 	private static Gson gson = new Gson();
 	private static final String RELATIVE_LOCATION = System
@@ -50,10 +50,9 @@ public class RiskMockUtil {
 	public static void createFileFromJson(String file, Object obj) {
 
 		String json = gson.toJson(obj);
-		// log.debug("Json created for file: " + json);
 
 		String fileLoc = RELATIVE_LOCATION + "/webapps/risk/json/" + file;
-		// log.debug("File location for file: " + fileLoc);
+		log.debug("File location for file: " + fileLoc);
 		File newFile = new File(fileLoc);
 		if (newFile.exists()) {
 			newFile.delete();
@@ -64,7 +63,7 @@ public class RiskMockUtil {
 			fileWriter.write(json);
 			fileWriter.close();
 		} catch (IOException e) {
-			// log.error(e.getMessage());
+			log.error(e.getMessage());
 			return;
 
 		}
@@ -73,7 +72,7 @@ public class RiskMockUtil {
 	public static int getFileCountInPackage(String location) {
 
 		String fileLoc = RELATIVE_LOCATION + "/webapps/risk/json/" + location;
-		System.out.println("FileLoc: " + fileLoc);
+		log.debug("FileLoc: " + fileLoc);
 		File packageLoc = new File(fileLoc);
 
 		int count = 0;
@@ -84,7 +83,7 @@ public class RiskMockUtil {
 				}
 			}
 		}
-		System.out.println("Number of files in " + fileLoc + ": " + count);
+		log.debug("Number of files in " + fileLoc + ": " + count);
 		return count;
 	}
 
@@ -93,7 +92,7 @@ public class RiskMockUtil {
 		File folder = new File(fileLoc);
 		if (folder.isDirectory()) {
 			for (File file : folder.listFiles()) {
-				System.out.println("Deleting " + file.toString());
+				log.debug("Deleting file " + file.toString());
 				file.delete();
 			}
 		} else {

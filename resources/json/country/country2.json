@@ -1,6 +1,7 @@
 {
 	"countryId": 2,
 	"countryName": "South America",
+	"pointValue": 2,
 	"territories": [
 		{ "territoryId": 10, "territoryName":"Argentina"},
 		{ "territoryId": 11, "territoryName":"Brazil"},

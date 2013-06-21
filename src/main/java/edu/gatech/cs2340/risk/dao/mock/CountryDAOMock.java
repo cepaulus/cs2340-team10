@@ -2,6 +2,9 @@ package main.java.edu.gatech.cs2340.risk.dao.mock;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
+import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.dao.CountryDAO;
 import main.java.edu.gatech.cs2340.risk.model.Country;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
@@ -12,6 +15,8 @@ import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
  *
  */
 public class CountryDAOMock implements CountryDAO {
+	
+	private static Logger log = Logger.getLogger(CountryDAOMock.class);
 	
 	private static final int COUNTRY_COUNT = 6;
 	private static final String COUNTRY_FILE_PATH = "/country/country";
@@ -27,6 +32,7 @@ public class CountryDAOMock implements CountryDAO {
 					RiskMockUtil.convertJsonFileToObject(fileName, Country.class);
 			countries.add(country);
 		}
+		log.debug("Returning countries " + countries);
 		return countries;
 	}
 
@@ -35,6 +41,8 @@ public class CountryDAOMock implements CountryDAO {
 		String fileName = COUNTRY_FILE_PATH + countryId + ".json";
 		Country country = (Country) 
 				RiskMockUtil.convertJsonFileToObject(fileName, Country.class);
+		
+		log.debug("Returning country " + country); 
 		return country;
 	}
 

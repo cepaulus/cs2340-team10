@@ -2,8 +2,6 @@ package main.java.edu.gatech.cs2340.risk.model;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.TreeMap;
-import java.util.Random;
 
 /**
  * @author Caroline Paulus
@@ -15,8 +13,7 @@ public class Player {
 	private int playerId;
 	private ArrayList<Territory> territories;
 	private ArrayList<Army> armies;
-	private int rollOrder;
-	private Color playerColor; 
+	private int rollOrder; 
 	
 
 	public Player( int playerId, String playerName) {
@@ -77,17 +74,22 @@ public class Player {
 	public int getRollOrder() {
 		return rollOrder;
 	}
-	public Color getPlayerColor() {
-		return playerColor;
-	}
-
-	public void setPlayerColor(Color playerColor) {
-		this.playerColor = playerColor;
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj.getClass() != Player.class) {
+			return false;
+		}
+		if ( ((Player) obj).getPlayerId() == this.playerId
+				&& ((Player) obj).getPlayerName().equals(this.playerName) ) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public String toString() {
-		return "[Name: " + playerName + ", ID: " + playerId + "]";
+		return "[" + playerName + ", ID: " + playerId + "]";
 	}
 
 }

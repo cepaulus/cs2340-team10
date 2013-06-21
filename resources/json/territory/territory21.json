@@ -1,5 +1,6 @@
 {
 	"territoryId": 21,
 	"territoryName": "Iceland",
-	"country": { "countryId": 4, "countryName": "Europe" }		
+	"country": { "countryId": 4, "countryName": "Europe" },
+	"numberOfArmies": 1	
 }

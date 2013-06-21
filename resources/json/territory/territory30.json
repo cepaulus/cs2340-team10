@@ -1,5 +1,6 @@
 {
 	"territoryId": 30,
 	"territoryName": "Irkutsk",
-	"country": { "countryId": 5, "countryName": "Asia" }		
+	"country": { "countryId": 5, "countryName": "Asia" },
+	"numberOfArmies": 1		
 }
