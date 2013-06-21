@@ -13,10 +13,10 @@ body {
 #player1 {
 	color: #C11B17;
 }
-#player1 a:link {
+#player1 .territoryButton {
 	color: #C11B17; text-decoration: none;
 }
-#player1 a:hover { 
+#player1 .territoryButton:hover {
 	color: #C11B17; text-decoration: underline; 
 }
 
@@ -24,21 +24,21 @@ body {
 #player2 {
 	color: #006BE1;
 }
-#player2 a:link { 
+#player2 .territoryButton { 
 	color: #006BE1; text-decoration: none;
 }
-#player2 a:hover {
-	color: #006BE1; text-decoration: underline;
+#player2 .territoryButton:hover {
+	color: #006BE1; text-decoration: underline; 
 }
 
 
 #player3 {
 	color: #249C00;
 }
-#player3 a:link {
+#player3 .territoryButton {
 	color: #249C00; text-decoration: none; 
 }
-#player3 a:hover {
+#player3 .territoryButton:hover {
 	color: #249C00; text-decoration: underline; 
 }
 
@@ -46,10 +46,10 @@ body {
 #player4 {
 	color: #FFD801;
 }
-#player4 a:link {
+#player4 .territoryButton {
 	color: #FFD801; text-decoration: none; 
 }
-#player4 a:hover {
+#player4 .territoryButton:hover {
 	color: #FFD801; text-decoration: underline; 
 }
 

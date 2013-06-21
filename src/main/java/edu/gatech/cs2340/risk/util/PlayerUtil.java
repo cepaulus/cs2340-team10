@@ -29,7 +29,7 @@ public class PlayerUtil {
 	}
 	
 	public static ArrayList<Player> setPlayerOrder(ArrayList<Player> players) {
-		
+		log.debug("Sorting players " + players);
 		Collections.sort(players, new Comparator<Player>() {
 
 			@Override
@@ -40,6 +40,7 @@ public class PlayerUtil {
 		for (int i = 0; i < players.size(); i++) {
 			players.get(i).setRollOrder(i + 1);
 		}
+		log.debug("Returning players " + players);
 		return players;
 	}
 

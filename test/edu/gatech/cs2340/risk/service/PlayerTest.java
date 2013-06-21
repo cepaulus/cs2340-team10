@@ -48,7 +48,7 @@ public class PlayerTest {
 		players.add(david);
 
 		players = armyService.addArmies(players);
-		assertNotNull(players.get(1).getArmies());
+		assertNotNull(players.get(1).getNumberOfArmies());
 	}
 
 }

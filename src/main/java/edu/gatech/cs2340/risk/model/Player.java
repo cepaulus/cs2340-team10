@@ -12,7 +12,7 @@ public class Player {
 	private String playerName;
 	private int playerId;
 	private ArrayList<Territory> territories;
-	private ArrayList<Army> armies;
+	private int numberOfArmies;
 	private int rollOrder; 
 	
 
@@ -52,19 +52,20 @@ public class Player {
 		territories.add(territory);
 	}
 
-	public ArrayList<Army> getArmies() {
-		return armies;
+	public int getNumberOfArmies() {
+		return numberOfArmies;
 	}
 
-	public void setArmies(ArrayList<Army> armies) {
-		this.armies = armies;
+	public void setNumberOfArmies(int numberOfArmies) {
+		this.numberOfArmies = numberOfArmies;
 	}
-
-	public void addArmy(Army army) {
-		if (armies == null) {
-			armies = new ArrayList<Army>();
-		}
-		armies.add(army);
+	
+	public void addArmy() {
+		numberOfArmies++;
+	}
+	
+	public void removeArmy() {
+		numberOfArmies--;
 	}
 
 	public void setRollOrder(int rollOrder) {

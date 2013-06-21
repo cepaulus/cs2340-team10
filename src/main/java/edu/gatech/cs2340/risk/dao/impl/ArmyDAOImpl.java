@@ -1,14 +1,11 @@
 package main.java.edu.gatech.cs2340.risk.dao.impl;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import main.java.edu.gatech.cs2340.risk.dao.ArmyDAO;
-import main.java.edu.gatech.cs2340.risk.dao.impl.PlayerDAOImpl;
-import main.java.edu.gatech.cs2340.risk.model.Army;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
 
@@ -34,10 +31,7 @@ public class ArmyDAOImpl implements ArmyDAO {
 			String sql = "UPDATE Players SET ArmyCount = " + armyCount
 					+ " WHERE id = " + player.getPlayerId() + ";";
 			s.executeUpdate(sql);
-			for (int i = 0; i < armyCount; i++) {
-				Army army = new Army(armyIdCount + i, player);
-				player.addArmy(army);
-			}
+			player.setNumberOfArmies(armyCount);
 			armyIdCount = armyIdCount + armyCount;
 		}
 		

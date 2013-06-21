@@ -49,6 +49,7 @@ public class AppController extends HttpServlet {
 			HttpServletResponse response)
 					throws IOException, ServletException {
 
+		log.debug("In doGet()");
 		players = playerService.getPlayers();
 		players = PlayerUtil.setPlayerOrder(players);
 		
@@ -86,12 +87,11 @@ public class AppController extends HttpServlet {
 		Territory territory = territoryService.getTerritory(territoryId);
 		log.debug("Current territory: " + territory);
 
-		int playerId = Integer.parseInt(request.getParameter("playerId"));
 		int currentPlayerId = Integer.parseInt(request.getParameter("currentPlayerId"));
 		
-		if (playerId == currentPlayerId) {
+		if (players.get(currentPlayerId - 1).getTerritories().contains(territory)
+				&& players.get(currentPlayerId - 1).getNumberOfArmies() > 0) {
 
-		if (currentPlayer.getTerritories().contains(territory)) {
 			log.debug("Territory belongs to player " + currentPlayer + ".");
 			int countryId = territory.getCountry().getCountryId();
 			log.debug("Country ID: " + countryId);
@@ -99,15 +99,15 @@ public class AppController extends HttpServlet {
 				if (t.equals(territory)) {
 					log.debug("Adding army to territory " + territory);
 					t.addArmy();
+					players.get(currentPlayerId - 1).removeArmy();
 				}
 			}
-		}
+			currentPlayer = players.get( currentPlayerId % players.size() );
 		}
 		else {
 			log.debug("Territory does not belong to player");
 		}
-		currentPlayer = players.get( currentPlayerId % players.size() );
-		log.debug("Current player: " + currentPlayer);
+		log.debug("New current player: " + currentPlayer);
 		request.setAttribute("currentPlayer", currentPlayer);
 		
 		request.setAttribute("players", players);
