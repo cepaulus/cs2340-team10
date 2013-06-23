@@ -57,10 +57,10 @@ body {
 #player5 {
 	color: #6C2DC7;
 }
-#player5 a:link {
+#player5 .territoryButton {
 	color: #6C2DC7; text-decoration: none; 
 }
-#player5 a:hover {
+#player5 .territoryButton:hover {
 	color: #6C2DC7; text-decoration: underline; 
 }
 
@@ -68,10 +68,10 @@ body {
 #player6 {
 	color: #FF8A21;
 }
-#player6 a:link {
+#player6 .territoryButton {
 	color: #FF8A21; text-decoration: none; 
 }
-#player6 a:hover {
+#player6 .territoryButton:hover {
 	color: #FF8A21; text-decoration: underline; 
 }
 

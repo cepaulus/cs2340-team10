@@ -15,7 +15,9 @@ public class PlayerUtil {
 	private static Logger log = Logger.getLogger(PlayerUtil.class);
 	
 	private static final Random RANDOM = new Random();
-	
+        private static Player selectedPlayer;
+        private static Player nextPlayer;
+
 	public static int rollDie() {
 		return RANDOM.nextInt(6) + 1;
 	}
@@ -44,4 +46,26 @@ public class PlayerUtil {
 		return players;
 	}
 
+	public static Player getPlayerById(ArrayList<Player> players, int playerId) {
+                for (Player player : players) {
+                      if (player.getPlayerId() == playerId){
+		          selectedPlayer = player;
+                      }
+                }
+                return selectedPlayer;
+       }
+
+       public static Player getNextPlayer(ArrayList<Player> players, int currentPlayerId) {
+               int counter = 0;
+               for (Player player : players) {
+                     counter++;
+                     if (counter >= players.size()){
+                         counter = 0;
+                     }
+                     if (player.getPlayerId() == currentPlayerId){
+                          nextPlayer = players.get(counter);
+                     }
+              }
+              return nextPlayer;
+       }
 }
