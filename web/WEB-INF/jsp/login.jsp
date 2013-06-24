@@ -61,7 +61,8 @@
 
 
           <form action="risk/app" method="GET" class="span12 text-center">
-            <a class="btn btn-success btn-large" id="btnStart" href="javascript:;" onclick="parentNode.submit();"><%="Start Game"%></a>
+            <a class="btn btn-success btn-large" id="btnStart" href="javascript:;"
+            	 onclick="parentNode.submit();"><%="Start Game"%></a>
           </form>
         </div>
 

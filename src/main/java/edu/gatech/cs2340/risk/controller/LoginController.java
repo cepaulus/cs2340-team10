@@ -44,21 +44,17 @@ public class LoginController extends HttpServlet {
 		if (operation == null) {
 			// set equal to POST so we don't get a null pointer exception
 			operation = "POST";
-		}
-		// if a name has been changed, sends request to Put method
-		if (operation.equalsIgnoreCase("PUT")) {
-			doPut(request, response);
 			// if the user pressed Delete, sends request to Delete method
-		} else if (operation.equalsIgnoreCase("DELETE")) {
+		} if (operation.equalsIgnoreCase("DELETE")) {
 			doDelete(request, response);
 		} else if (operation.equalsIgnoreCase("LAUNCH")) {
+			// loads the game application at a different URL
 			appController.doGet(request, response);
 		} else {
 			String name = request.getParameter("name");
-			
+			// create a new player
 			Player player = new Player(players.size() + 1, name);
 			log.debug("Creating player " + player);
-			player.setRollOrder(PlayerUtil.rollDie());
 			
 			try {
 				playerService.addPlayer(player);
@@ -93,36 +89,16 @@ public class LoginController extends HttpServlet {
 	}
 
 	/**
-	 * 
+	 * Deletes a player name from the list of players and the database
 	 */
-	protected void doPut(HttpServletRequest request,
-			HttpServletResponse response)
-					throws IOException, ServletException {
-		log.debug("In doPut()");
-		String name = (String) request.getParameter("name");
-		int id = getId(request);
-		
-		Player player = null;
-		try {
-			player = playerService.addPlayer(new Player(id, name));
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO add error handling
-			e.printStackTrace();
-		}
-		players.add(player);
-		request.setAttribute("players", players);
-		RequestDispatcher dispatcher = 
-				getServletContext().getRequestDispatcher("/login.jsp");
-		dispatcher.forward(request,response);
-	}
-
 	protected void doDelete(HttpServletRequest request,
 			HttpServletResponse response)
 					throws IOException, ServletException {
 		log.debug("In doDelete()");
 		int id = getId(request);
 		players.remove(id);
-		// delete player from database
+		// delete player from list
+		// TODO this method has not been written yet
 		try {
 			playerService.deletePlayer(id);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -134,7 +110,13 @@ public class LoginController extends HttpServlet {
 				getServletContext().getRequestDispatcher("/login.jsp");
 		dispatcher.forward(request,response);
 	}
-
+	
+	/**
+	 * Returns the number at the end of the URL corresponding to current player ID
+	 * 
+	 * @param request
+	 * @return
+	 */
 	private int getId(HttpServletRequest request) {
 		String uri = request.getPathInfo();
 		// Strip off the leading slash, e.g. "/2" becomes "2"
