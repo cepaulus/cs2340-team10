@@ -4,19 +4,58 @@ body {
 	position: relative;*/
 }
 
-.territoryButton {
- 	background:none!important;
-    border:none; 
+div.table-container {
+	width: 100%;
+	margin: 0 auto;
 }
 
+#player-container {
+	float: left;
+}
+
+.container-display {
+	width: 460px;
+	height: 178px;
+	display: inline-block;
+	color: #555;
+	vertical-align: middle;
+	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top: 13px;
+	margin-left: 45px;
+	margin-right: 45px;
+	
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+
+.territory-block {
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: center;
+}
+
+.adjust-padding {
+	padding: 10px;
+}
+
+.adjust-padding-strong {
+	padding-left: 30px;
+}
+
+.adjust-left {
+	width: 50px;
+}
 
 #player1 {
 	color: #C11B17;
 }
-#player1 .territoryButton {
+#player1 a:link {
 	color: #C11B17; text-decoration: none;
 }
-#player1 .territoryButton:hover {
+#player1 a:hover {
 	color: #C11B17; text-decoration: underline; 
 }
 
@@ -24,10 +63,10 @@ body {
 #player2 {
 	color: #006BE1;
 }
-#player2 .territoryButton { 
+#player2 a:link { 
 	color: #006BE1; text-decoration: none;
 }
-#player2 .territoryButton:hover {
+#player2 a:hover {
 	color: #006BE1; text-decoration: underline; 
 }
 
@@ -35,10 +74,10 @@ body {
 #player3 {
 	color: #249C00;
 }
-#player3 .territoryButton {
+#player3 a:link {
 	color: #249C00; text-decoration: none; 
 }
-#player3 .territoryButton:hover {
+#player3 a:hover {
 	color: #249C00; text-decoration: underline; 
 }
 
@@ -46,10 +85,10 @@ body {
 #player4 {
 	color: #FFD801;
 }
-#player4 .territoryButton {
+#player4 a:link {
 	color: #FFD801; text-decoration: none; 
 }
-#player4 .territoryButton:hover {
+#player4 a:hover {
 	color: #FFD801; text-decoration: underline; 
 }
 

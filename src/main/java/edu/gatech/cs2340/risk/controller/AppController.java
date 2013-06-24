@@ -86,11 +86,14 @@ public class AppController extends HttpServlet {
 		int territoryId = Integer.parseInt(request.getParameter("territoryId"));
 		Territory territory = territoryService.getTerritory(territoryId);
 		log.debug("Current territory: " + territory);
-
+                
 		int currentPlayerId = Integer.parseInt(request.getParameter("currentPlayerId"));
-		
-		if (players.get(currentPlayerId - 1).getTerritories().contains(territory)
-				&& players.get(currentPlayerId - 1).getNumberOfArmies() > 0) {
+	       
+                // check current player owns the selected territory, and that the player
+	        // has armies left	
+		log.debug("Current player ID: " + currentPlayerId);
+		if (PlayerUtil.getPlayerById(players, currentPlayerId).getTerritories().contains(territory)
+				&& PlayerUtil.getPlayerById(players, currentPlayerId).getNumberOfArmies() > 0) {
 
 			log.debug("Territory belongs to player " + currentPlayer + ".");
 			int countryId = territory.getCountry().getCountryId();
@@ -99,14 +102,18 @@ public class AppController extends HttpServlet {
 				if (t.equals(territory)) {
 					log.debug("Adding army to territory " + territory);
 					t.addArmy();
-					players.get(currentPlayerId - 1).removeArmy();
+					PlayerUtil.getPlayerById(players, currentPlayerId).removeArmy();
 				}
 			}
-			currentPlayer = players.get( currentPlayerId % players.size() );
+                       currentPlayer = PlayerUtil.getNextPlayer(players, currentPlayerId);
+                       currentPlayerId = currentPlayer.getPlayerId();
+
 		}
 		else {
 			log.debug("Territory does not belong to player");
 		}
+
+
 		log.debug("New current player: " + currentPlayer);
 		request.setAttribute("currentPlayer", currentPlayer);
 		
@@ -115,7 +122,8 @@ public class AppController extends HttpServlet {
 		// send the updated list back to login.jsp
 		request.setAttribute("countries", countries);
 		request.setAttribute("territoryMap", territoryMap);
-		RequestDispatcher dispatcher = 
+		request.setAttribute("currentPlayerId", currentPlayerId);
+                RequestDispatcher dispatcher = 
 				getServletContext().getRequestDispatcher("/app.jsp");
 		dispatcher.forward(request,response);
 	}
