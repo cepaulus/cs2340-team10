@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.dao.CountryDAO;
 import main.java.edu.gatech.cs2340.risk.model.Country;
-import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
 
 /**
@@ -27,9 +25,12 @@ public class CountryDAOMock implements CountryDAO {
 		
 		String fileName;
 		for (int i = 1; i <= COUNTRY_COUNT; i++) {
+			// get the location of each country's json file
 			fileName = COUNTRY_FILE_PATH + i + ".json";
+			// create a country object from the country json file
 			Country country = (Country) 
 					RiskMockUtil.convertJsonFileToObject(fileName, Country.class);
+			// add country to list of countries
 			countries.add(country);
 		}
 		log.debug("Returning countries " + countries);
@@ -38,7 +39,9 @@ public class CountryDAOMock implements CountryDAO {
 
 	@Override
 	public Country getCountry(int countryId) {
+		// get the location of the country json file
 		String fileName = COUNTRY_FILE_PATH + countryId + ".json";
+		// create a country object from the country json file
 		Country country = (Country) 
 				RiskMockUtil.convertJsonFileToObject(fileName, Country.class);
 		

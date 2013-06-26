@@ -42,7 +42,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public ArrayList<Player> getPlayer(int playerId) {
+	public Player getPlayer(int playerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,7 +65,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public Player deletePlayer(int playerId) throws SQLException, ClassNotFoundException {
+	public void deletePlayer(int playerId) throws SQLException, ClassNotFoundException {
 		Connection conn = DriverManager.getConnection(RiskConstants.DB_URL 
 				+ RiskConstants.DB_NAME, RiskConstants.DB_USER, RiskConstants.DB_PASSWORD);
 		Class.forName(RiskConstants.JDBC_DRIVER);
@@ -85,8 +85,6 @@ public class PlayerDAOImpl implements PlayerDAO {
 		s.execute(sql);
 		s.close();
 		conn.close();
-		
-		return player;
 	}
 
 	

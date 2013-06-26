@@ -1,15 +1,13 @@
 package edu.gatech.cs2340.risk.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import main.java.edu.gatech.cs2340.risk.exception.PackageNotFoundException;
 import main.java.edu.gatech.cs2340.risk.model.Player;
-import main.java.edu.gatech.cs2340.risk.service.impl.ArmyServiceImpl;
 import main.java.edu.gatech.cs2340.risk.service.impl.PlayerServiceImpl;
-import main.java.edu.gatech.cs2340.risk.util.RiskDatabaseUtil;
+import main.java.edu.gatech.cs2340.risk.util.ArmyUtil;
 import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
 
 import org.junit.Test;
@@ -25,7 +23,6 @@ public class PlayerTest {
 		RiskMockUtil.restoreDefaults();
 
 		PlayerServiceImpl playerService = new PlayerServiceImpl();
-		ArmyServiceImpl armyService = new ArmyServiceImpl();
 
 		Player rebecca = new Player(1, "Rebecca"); // these are my siblings' names...haha
 		Player john = new Player(2, "John");
@@ -47,8 +44,8 @@ public class PlayerTest {
 		players.add(anna);
 		players.add(david);
 
-		players = armyService.addArmies(players);
-		assertNotNull(players.get(1).getNumberOfArmies());
+		players = ArmyUtil.addArmies(players);
+		assertNotNull(players.get(1).getAvailableArmies());
 	}
 
 }

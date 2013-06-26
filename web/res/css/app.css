@@ -1,116 +1,375 @@
 /* Contains the CSS for the Risk Game page */
-body {
-	/*background:url(/risk/images/riskmap.png) no-repeat;
-	position: relative;*/
-}
 
-div.table-container {
-	width: 100%;
+#wrap {
+	width: 1024px;
 	margin: 0 auto;
 }
 
-#player-container {
-	float: left;
+#players div.player {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#fbfbfb), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #CCC;
+	border-bottom: 10px solid #CCC;
+	border-top: none;
+	-webkit-border-radius: 0 0 15px 15px;
+	border-radius: 0 0 15px 15px;
 }
 
-.container-display {
-	width: 460px;
-	height: 178px;
-	display: inline-block;
-	color: #555;
-	vertical-align: middle;
-	
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	margin-top: 13px;
-	margin-left: 45px;
-	margin-right: 45px;
-	
-	background-color: #fff;
-	border: 1px solid #ccc;
+/* PLAYER COLORS */
+
+#players div.player0 {
+	border-bottom-color: #a5d5a8;
+}
+
+#players div.player0.active {
+	border-bottom-color: #00da11;
+}
+
+#players div.player1 {
+	border-bottom-color: #a5b9d5;
+}
+
+#players div.player1.active {
+	border-bottom-color: #0061da;
+}
+
+#players div.player2 {
+	border-bottom-color: #d5a5a5;
+}
+
+#players div.player2.active {
+	border-bottom-color: #da0000;
+}
+
+#players div.player3 {
+	border-bottom-color: #f6f872;
+}
+
+#players div.player3.active {
+	border-bottom-color: #f6ff00;
+}
+
+#players div.player4 {
+	border-bottom-color: #d5a5d1;
+}
+
+#players div.player4.active {
+	border-bottom-color: #da00c8;
+}
+
+#players div.player5 {
+	border-bottom-color: #b6ebea;
+}
+
+#players div.player5.active {
+	border-bottom-color: #00d7da;
+}
+
+/* MAP STYLES */
+
+#map {
+	margin-top: 20px;
+	background: url('../images/riskmap.png') no-repeat;
+	height: 618px;
+	width: 1024px;
+}
+
+div.territory {
+	position: relative;
+	width: 0px;
+	height: 0px;
+}
+
+div.territory form input[type=submit]{
+	height: 35px;
+	min-width: 35px;
+	margin: 25px 0px 0px 10px;
+	border-radius: 50%;
+	webkit-border-radius: 50%;
+	background: #666;
+	color: #FFF;
+	text-shadow: #000 0px 0px 5px;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 1px 5px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 1px 5px rgba(50, 50, 50, 0.75);
+}
+
+div.territory.player0 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/greenPlayer.png');
+}
+
+div.territory.player0 form input[type=submit] {
+	background: #24c612;
+}
+
+div.territory.player1 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/bluePlayer.png');
+}
+
+div.territory.player1 form input[type=submit] {
+	background: #126fc6;
+}
+
+div.territory.player2 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/redPlayer.png');
+}
+
+div.territory.player2 form input[type=submit] {
+	background: #c61216;
+}
+
+div.territory.player3 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/yellowPlayer.png');
+}
+
+div.territory.player3 form input[type=submit] {
+	background: #c6b312;
+}
+
+div.territory.player4 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/purplePlayer.png');
+}
+
+div.territory.player4 form input[type=submit] {
+	background: #7e12c6;
+}
+
+div.territory.player5 form{
+	height: 52px;
+	width: 35px;
+	background: url('../images/cyanPlayer.png');
+}
+
+div.territory.player5 form input[type=submit] {
+	background: #12c692;
 }
 
 
-.territory-block {
-	padding-left: 2px;
-	padding-right: 2px;
-	text-align: center;
+
+/* TERRITORY PLACING */
+
+div.territory.territory1 {
+	top: 50px;
+	left: 50px;
 }
 
-.adjust-padding {
-	padding: 10px;
+div.territory.territory2 {
+	top: 120px;
+	left: 150px;
 }
 
-.adjust-padding-strong {
-	padding-left: 30px;
+div.territory.territory3 {
+	top: 250px;
+	left: 150px;
 }
 
-.adjust-left {
-	width: 50px;
+div.territory.territory4 {
+	top: 190px;
+	left: 250px;
 }
 
-#player1 {
-	color: #C11B17;
-}
-#player1 a:link {
-	color: #C11B17; text-decoration: none;
-}
-#player1 a:hover {
-	color: #C11B17; text-decoration: underline; 
+div.territory.territory5 {
+	left: 400px;
 }
 
-
-#player2 {
-	color: #006BE1;
-}
-#player2 a:link { 
-	color: #006BE1; text-decoration: none;
-}
-#player2 a:hover {
-	color: #006BE1; text-decoration: underline; 
+div.territory.territory6 {
+	top: 60px;
+	left: 180px;
 }
 
-
-#player3 {
-	color: #249C00;
-}
-#player3 a:link {
-	color: #249C00; text-decoration: none; 
-}
-#player3 a:hover {
-	color: #249C00; text-decoration: underline; 
+div.territory.territory7 {
+	top: 120px;
+	left: 230px;
 }
 
-
-#player4 {
-	color: #FFD801;
-}
-#player4 a:link {
-	color: #FFD801; text-decoration: none; 
-}
-#player4 a:hover {
-	color: #FFD801; text-decoration: underline; 
+div.territory.territory8 {
+	top: 120px;
+	left: 310px;
 }
 
-
-#player5 {
-	color: #6C2DC7;
-}
-#player5 a:link {
-	color: #6C2DC7; text-decoration: none; 
-}
-#player5 a:hover {
-	color: #6C2DC7; text-decoration: underline; 
+div.territory.territory9 {
+	top: 180px;
+	left: 140px;
 }
 
-
-#player6 {
-	color: #FF8A21;
-}
-#player6 a:link {
-	color: #FF8A21; text-decoration: none; 
-}
-#player6 a:hover {
-	color: #FF8A21; text-decoration: underline; 
+div.territory.territory10 {
+	top: 500px;
+	left: 250px;
 }
 
+div.territory.territory11 {
+	top: 400px;
+	left: 310px;
+}
+
+div.territory.territory12 {
+	top: 390px;
+	left: 185px;
+}
+
+div.territory.territory13 {
+	top: 320px;
+	left: 195px;
+}
+
+div.territory.territory14 {
+	top: 410px;
+	left: 475px;
+}
+
+div.territory.territory15 {
+	top: 355px;
+	left: 530px;
+}
+
+div.territory.territory16 {
+	top: 290px;
+	left: 490px;
+}
+
+div.territory.territory17 {
+	top: 485px;
+	left: 565px;
+}
+
+div.territory.territory18 {
+	top: 305px;
+	left: 400px;
+}
+
+div.territory.territory19 {
+	top: 490px;
+	left: 470px;
+}
+
+div.territory.territory20 {
+	top: 145px;
+	left: 410px;
+}
+
+div.territory.territory21 {
+	top: 85px;
+	left: 405px;
+}
+
+div.territory.territory22 {
+	top: 155px;
+	left: 465px;
+}
+
+div.territory.territory23 {
+	top: 70px;
+	left: 490px;
+}
+
+div.territory.territory24 {
+	top: 215px;
+	left: 485px;
+}
+
+div.territory.territory25 {
+	top: 100px;
+	left: 570px;
+}
+
+div.territory.territory26 {
+	top: 220px;
+	left: 425px;
+}
+
+div.territory.territory27 {
+	top: 200px;
+	left: 635px;
+}
+
+div.territory.territory28 {
+	top: 230px;
+	left: 720px;
+}
+
+div.territory.territory29 {
+	top: 265px;
+	left: 660px;
+}
+
+div.territory.territory30 {
+	top: 125px;
+	left: 795px;
+}
+
+div.territory.territory31 {
+	top: 220px;
+	left: 900px;
+}
+
+div.territory.territory32 {
+	top: 90px;
+	left: 915px;
+}
+
+div.territory.territory33 {
+	top: 280px;
+	left: 580px;
+}
+
+div.territory.territory34 {
+	top: 185px;
+	left: 810px;
+}
+
+div.territory.territory35 {
+	top: 320px;
+	left: 760px;
+}
+
+div.territory.territory36 {
+	top: 55px;
+	left: 720px;
+}
+
+div.territory.territory37 {
+	top: 115px;
+	left: 660px;
+}
+
+div.territory.territory38 {
+	top: 70px;
+	left: 825px;
+}
+
+div.territory.territory39 {
+	top: 500px;
+	left: 895px;
+}
+
+div.territory.territory40 {
+	top: 390px;
+	left: 770px;
+}
+
+div.territory.territory41 {
+	top: 400px;
+	left: 910px;
+}
+
+div.territory.territory42 {
+	top: 490px;
+	left: 780px;
+}

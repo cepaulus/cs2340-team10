@@ -22,7 +22,7 @@ public interface PlayerService {
 	 * @param playerId
 	 * @return
 	 */
-	public ArrayList<Player> getPlayer(int playerId); 
+	public Player getPlayer(int playerId); 
 	/**
 	 * Adds the player to the database of players and returns it
 	 * 
@@ -36,10 +36,9 @@ public interface PlayerService {
 	 * Deletes the player from the database of players and returns it
 	 * 
 	 * @param playerId
-	 * @return
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 */
-	public Player deletePlayer(int playerId) throws ClassNotFoundException, SQLException;
+	public void deletePlayer(int playerId) throws ClassNotFoundException, SQLException;
 
 }

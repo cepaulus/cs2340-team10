@@ -29,15 +29,16 @@
           <% for (int id = 0; id < players.size(); id ++) { %>
           <div class="span4">
             <% Player player = players.get(id); %>
-            <form action="/risk<%= id %>" method="POST" class="prevSubmissionName">
+            <form action="/risk" method="POST" class="prevSubmissionName">
               <!-- hidden operation element to simulate HTTP PUT method in server -->
               <input type="hidden" name="operation" value="PUT"/>
               <input type="hidden" name="name" value="<%= player.getPlayerName() %>"/>
               <span class="input-large uneditable-input"><%= player.getPlayerName() %></span>
             </form>
-            <form action="/risk<%= id %>" method="POST">
+            <form action="/risk" method="POST">
               <!-- hidden operation element to simulate HTTP DELETE method in server -->
               <input type="hidden" name="operation" value="DELETE"/>
+              <input type="hidden" name="id" value="<%= id %>"/>
               <input class="btn btn-danger span2 offset1" type="submit" value="Delete"/>
             </form>
           </div>
@@ -45,7 +46,7 @@
 
           <div class="span4">
             <% if (players.size() < 6) { %>
-            <form action="/risk" method="POST" class="newSubmissionName">
+            <form action="/risk" method="POST" class="newSubmissionName" name="newPlayer">
               <input class="input-large" type="text" name="name"/>
               <input class="btn btn-primary span2 offset1" type="submit" value="Add"/>
             </form>
@@ -61,8 +62,7 @@
 
 
           <form action="risk/app" method="GET" class="span12 text-center">
-            <a class="btn btn-success btn-large" id="btnStart" href="javascript:;"
-            	 onclick="parentNode.submit();"><%="Start Game"%></a>
+            <a class="btn btn-success btn-large" id="btnStart" href="javascript:;" onclick="parentNode.submit();"><%="Start Game"%></a>
           </form>
         </div>
 
@@ -74,4 +74,9 @@
     </div>
   </div>
 </body>
+
+<script type="text/javascript" language="JavaScript">
+    document.forms['newPlayer'].elements['name'].focus();
+</script>
+
 </html>

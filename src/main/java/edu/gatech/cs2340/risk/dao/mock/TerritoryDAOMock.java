@@ -31,9 +31,12 @@ public class TerritoryDAOMock implements TerritoryDAO {
 		
 		String fileName;
 		for (int i = 1; i <= TERRITORY_COUNT; i++) {
+			// get the location of each territory's json file
 			fileName = TERRITORY_FILE_PATH + i + ".json";
+			// create a territory object from each territory json file
 			Territory territory = (Territory) 
 					RiskMockUtil.convertJsonFileToObject(fileName, Territory.class);
+			// add territories to list 
 			territories.add(territory);
 		}
 		log.debug("Returning territories " + territories);
@@ -42,13 +45,19 @@ public class TerritoryDAOMock implements TerritoryDAO {
 
 	@Override
 	public ArrayList<Territory> getTerritories(int countryId) {
+		// get the location of the json file for the country with ID = countryId
 		String fileName = COUNTRY_FILE_PATH + countryId + ".json";
+		// create a country object from the country's json file
 		Country country = (Country) 
 				RiskMockUtil.convertJsonFileToObject(fileName, Country.class);
 		
 		ArrayList<Territory> territories = new ArrayList<Territory>();
+		
+		// go through country's territories and get the IDs 
+		// json file does not include all information about territories so 
+		//    it is necessary to build them from their json files
 		for (Territory t : country.getTerritories()) {
-			// build territory from json file
+			// create a territory object from each territory's json file
 			Territory territory = getTerritory(t.getTerritoryId());
 			territories.add(territory);
 		}
@@ -58,7 +67,9 @@ public class TerritoryDAOMock implements TerritoryDAO {
 
 	@Override
 	public Territory getTerritory(int territoryId) {
+		// get the location of the territory's json file
 		String fileName = TERRITORY_FILE_PATH + territoryId + ".json";
+		// create a territory object from the territory's json file
 		Territory territory = (Territory) 
 				RiskMockUtil.convertJsonFileToObject(fileName, Territory.class);
 		
@@ -68,16 +79,26 @@ public class TerritoryDAOMock implements TerritoryDAO {
 
 	@Override
 	public ArrayList<Player> addTerritories(ArrayList<Player> players) {
+		// get all territories from jsons
 		ArrayList<Territory> territories = getTerritories();
 		Random rand = new Random();
 		
+		// continue until all territories have been assigned to players
 		while (territories.size() > 0) {
 			for (Player player : players) {
+				
+				// make sure there are still territories left to assign
 				if (territories.size() > 0) {
-					int territoryId = rand.nextInt(territories.size());
-					player.addTerritory(territories.get(territoryId));
-					territories.remove(territoryId);
+					
+					// randomly select a value between 0 and territories.size()-1
+					int territoryIndex = rand.nextInt(territories.size());
+					
+					// add the territory located at that index to the player's list of territories
+					player.addTerritory(territories.get(territoryIndex));
+					// remove that territory from the list of territories
+					territories.remove(territoryIndex);
 				}
+				// if all the territories have been assigned, break out of the while loop
 				else {
 					break;
 				}
@@ -89,6 +110,7 @@ public class TerritoryDAOMock implements TerritoryDAO {
 			log.debug("Player " + players.get(i) 
 					+ " has territories " + players.get(i).getTerritories());
 		}
+		// return the updated list of players 
 		return players;
 	}
 

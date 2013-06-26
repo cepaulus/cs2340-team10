@@ -39,6 +39,7 @@ public class LoginController extends HttpServlet {
 
 		// determines which operation has been requested
 		String operation = (String) request.getParameter("operation");
+		log.debug("Operation: " + operation);
 
 		// if no operation has been requested, it indicates a name was added
 		if (operation == null) {
@@ -95,7 +96,7 @@ public class LoginController extends HttpServlet {
 			HttpServletResponse response)
 					throws IOException, ServletException {
 		log.debug("In doDelete()");
-		int id = getId(request);
+		int id = Integer.parseInt(request.getParameter("id"));
 		players.remove(id);
 		// delete player from list
 		// TODO this method has not been written yet

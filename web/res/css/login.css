@@ -11,8 +11,8 @@ h1 {
 	margin-bottom: 0;
 }
 
-.newSubmissionName input{
-	height: 30px;
+input[type=text] {
+    height: 30px;
 }
 
 #btnStart {

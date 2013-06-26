@@ -7,7 +7,6 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
-import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 
 public class PlayerUtil {
@@ -49,6 +48,8 @@ public class PlayerUtil {
 	 * @return Sorted list of players
 	 */
 	public static ArrayList<Player> setPlayerOrder(ArrayList<Player> players) {
+		
+		log.debug("Setting player order for " + players.size() + " players");
 		// each player rolls the dice and is assigned a temporary roll value
 		for (Player player : players) {
 			player.setRollOrder(PlayerUtil.rollDie());
@@ -58,9 +59,7 @@ public class PlayerUtil {
 
 			@Override
 			public int compare(Player p1, Player p2) {
-				System.out.println("player 1: " + p1 + "Roll order: " + p1.getRollOrder());
-				System.out.println("player 2: " + p2 + "Roll order: " + p2.getRollOrder());
-				return (p1.getRollOrder() > p2.getRollOrder() ? -1 : 1);
+				return (p1.getRollOrder() > p2.getRollOrder() ? 1 : -1);
 			}
 		});
 		for (int i = 0; i < players.size(); i++) {
@@ -98,4 +97,5 @@ public class PlayerUtil {
 		}
 		return nextPlayer;
 	}
+
 }

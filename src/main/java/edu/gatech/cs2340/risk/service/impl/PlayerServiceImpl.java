@@ -2,11 +2,7 @@ package main.java.edu.gatech.cs2340.risk.service.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.TreeMap;
-
-import main.java.edu.gatech.cs2340.risk.dao.impl.PlayerDAOImpl;
 import main.java.edu.gatech.cs2340.risk.dao.mock.PlayerDAOMock;
-import main.java.edu.gatech.cs2340.risk.exception.PackageNotFoundException;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.service.PlayerService;
 
@@ -24,9 +20,8 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	@Override
-	public ArrayList<Player> getPlayer(int playerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getPlayer(int playerId) {
+		return playerDAO.getPlayer(playerId);
 	}
 
 	@Override
@@ -38,10 +33,10 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	@Override
-	public Player deletePlayer(int playerId) 
+	public void deletePlayer(int playerId) 
 			throws ClassNotFoundException, SQLException {
 			
-		return playerDAO.deletePlayer(playerId);
+		playerDAO.deletePlayer(playerId);
 	}
 
 

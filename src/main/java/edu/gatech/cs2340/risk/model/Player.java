@@ -1,6 +1,5 @@
 package main.java.edu.gatech.cs2340.risk.model;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +11,7 @@ public class Player {
 	private String playerName;
 	private int playerId;
 	private ArrayList<Territory> territories;
-	private int numberOfArmies;
+	private int availableArmies;
 	private int rollOrder; 
 	
 
@@ -52,20 +51,20 @@ public class Player {
 		territories.add(territory);
 	}
 
-	public int getNumberOfArmies() {
-		return numberOfArmies;
+	public int getAvailableArmies() {
+		return availableArmies;
 	}
 
-	public void setNumberOfArmies(int numberOfArmies) {
-		this.numberOfArmies = numberOfArmies;
+	public void setAvailableArmies(int availableArmies) {
+		this.availableArmies = availableArmies;
 	}
 	
 	public void addArmy() {
-		numberOfArmies++;
+		availableArmies++;
 	}
 	
 	public void removeArmy() {
-		numberOfArmies--;
+		availableArmies--;
 	}
 
 	public void setRollOrder(int rollOrder) {
