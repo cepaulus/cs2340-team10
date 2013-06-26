@@ -49,8 +49,8 @@
   	<copy  todir="${build.home}">
   	      <fileset dir="${basedir}/web/WEB-INF/jsp"/>
   	</copy>
-  	<copy  todir="${build.home}">
-  	  	   <fileset dir="${web.dir}/res"/>
+  	<copy  todir="${build.home}/css">
+  	  	   <fileset dir="${web.dir}/res/css"/>
   	</copy>
   	<copy  todir="${build.home}/WEB-INF/lib">
   	  	  <fileset dir="${basedir}/web/WEB-INF/lib"/>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 import main.java.edu.gatech.cs2340.risk.model.Player;
+import main.java.edu.gatech.cs2340.risk.util.CountryUtil;
 
 /**
  * @author Caroline Paulus
@@ -38,7 +39,7 @@ public class ArmyUtil {
 		int armiesFromTerritories = ( currentPlayer.getTerritories().size() < 9 
 				? 3 : currentPlayer.getTerritories().size()/3 );
 		// get armies earned from owning countries
-		int armiesFromCountries = 0; // TODO get number from countryutil
+		int armiesFromCountries = CountryUtil.getPointsForCountries(currentPlayer); // TODO get number from countryutil
 		int totalArmies = armiesFromTerritories + armiesFromCountries;
 		return totalArmies;
 	}
