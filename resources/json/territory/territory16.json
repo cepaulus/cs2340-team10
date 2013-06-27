@@ -2,5 +2,12 @@
 	"territoryId": 16,
 	"territoryName": "Egypt",
 	"country": { "countryId": 3, "countryName": "Africa" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 15, "territoryName": "East Africa" },
+		{ "territoryId": 18, "territoryName": "North Africa" },
+		{ "territoryId": 24, "territoryName": "Southern Europe" },
+		{ "territoryId": 25, "territoryName": "Ukraine" },
+		{ "territoryId": 33, "territoryName": "Middle East" }
+	]
 }

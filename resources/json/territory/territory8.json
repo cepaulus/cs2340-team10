@@ -2,5 +2,10 @@
 	"territoryId": 8,
 	"territoryName": "Quebec",
 	"country": { "countryId": 1, "countryName": "North America" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 4, "territoryName": "Eastern United States" },
+		{ "territoryId": 5, "territoryName": "Greenland" },
+		{ "territoryId": 7, "territoryName": "Ontario" }
+	]
 }

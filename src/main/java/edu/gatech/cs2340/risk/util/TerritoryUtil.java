@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 
 public class TerritoryUtil {
@@ -19,5 +20,15 @@ public class TerritoryUtil {
 		});
 		return territories;
 
+	}
+
+	public static Territory getTerritoryById(Player player, int territoryId) {
+		
+		for (Territory territory : player.getTerritories()) {
+			if (territory.getTerritoryId() == territoryId) {
+				return territory;
+			}
+		}
+		return null;
 	}
 }

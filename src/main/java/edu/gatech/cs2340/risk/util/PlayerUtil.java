@@ -70,7 +70,7 @@ public class PlayerUtil {
 	}
 
 	/**
-	 * Returns the player with TODO
+	 * Returns the player with ID matching playerId
 	 * @param players
 	 * @param playerId
 	 * @return

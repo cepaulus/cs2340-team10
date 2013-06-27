@@ -2,5 +2,13 @@
 	"territoryId": 7,
 	"territoryName": "Ontario",
 	"country": { "countryId": 1, "countryName": "North America" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 2, "territoryName": "Alberta" },
+		{ "territoryId": 4, "territoryName": "Eastern United States" },
+		{ "territoryId": 5, "territoryName": "Greenland" },
+		{ "territoryId": 6, "territoryName": "Northwest Territory" },
+		{ "territoryId": 8, "territoryName": "Quebec" },
+		{ "territoryId": 9, "territoryName": "Western United States" }
+	]
 }

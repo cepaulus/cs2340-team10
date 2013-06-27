@@ -2,5 +2,10 @@
 	"territoryId": 3,
 	"territoryName": "Central America",
 	"country": { "countryId": 1, "countryName": "North America" },
-	"numberOfArmies": 1		
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 4, "territoryName": "Eastern United States" },
+		{ "territoryId": 9, "territoryName": "Western United States" },
+		{ "territoryId": 13, "territoryName": "Venezuela" }
+	]
 }

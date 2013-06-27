@@ -2,5 +2,10 @@
 	"territoryId": 38,
 	"territoryName": "Yakutsk",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 30, "territoryName": "Irkutsk" },
+		{ "territoryId": 32, "territoryName": "Kamchatka" },
+		{ "territoryId": 36, "territoryName": "Siberia" }
+	] 
 }

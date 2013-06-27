@@ -2,5 +2,13 @@
 	"territoryId": 28,
 	"territoryName": "China",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1, 
+	"neighboringTerritories": [
+		{ "territoryId": 27, "territoryName": "Afghanistan" },
+		{ "territoryId": 29, "territoryName": "India" }, 
+		{ "territoryId": 34, "territoryName": "Mongolia" },
+		{ "territoryId": 35, "territoryName": "Siam" },
+		{ "territoryId": 36, "territoryName": "Siberia" },
+		{ "territoryId": 37, "territoryName": "Ural" }
+	]
 }

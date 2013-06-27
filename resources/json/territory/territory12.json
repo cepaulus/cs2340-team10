@@ -2,5 +2,10 @@
 	"territoryId": 12,
 	"territoryName": "Peru",
 	"country": { "countryId": 2, "countryName": "South America" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 10, "territoryName": "Argentina" },
+		{ "territoryId": 11, "territoryName": "Brazil" },
+		{ "territoryId": 13, "territoryName": "Venezuela" }
+	]
 }

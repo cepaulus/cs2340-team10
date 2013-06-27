@@ -7,6 +7,8 @@
 <% ArrayList<Player> players = 
 (ArrayList<Player>) request.getAttribute("players"); %>
 <% Player currentPlayer = (Player) request.getAttribute("currentPlayer"); %>
+<% Territory attackingTerritory = (Territory) request.getAttribute("attackingTerritory"); %>
+<% Territory defendingTerritory = (Territory) request.getAttribute("defendingTerritory"); %>
 
 <html>
 <head>

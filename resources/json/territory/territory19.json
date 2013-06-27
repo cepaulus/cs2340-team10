@@ -2,5 +2,10 @@
 	"territoryId": 19,
 	"territoryName": "South Africa",
 	"country": { "countryId": 3, "countryName": "Africa" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 14, "territoryName": "Congo" },
+		{ "territoryId": 15, "territoryName": "East Africa" },
+		{ "territoryId": 17, "territoryName": "Madagascar" }
+	]
 }

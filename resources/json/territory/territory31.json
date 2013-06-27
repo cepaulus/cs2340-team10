@@ -2,5 +2,9 @@
 	"territoryId": 31,
 	"territoryName": "Japan",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 32, "territoryName": "Kamchatka" },
+		{ "territoryId": 34, "territoryName": "Mongolia" }
+	]
 }

@@ -2,5 +2,11 @@
 	"territoryId": 20,
 	"territoryName": "Great Britain",
 	"country": { "countryId": 4, "countryName": "Europe" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 21, "territoryName": "Iceland" },
+		{ "territoryId": 22, "territoryName": "Northern Europe" },
+		{ "territoryId": 23, "territoryName": "Scandinavia" },
+		{ "territoryId": 26, "territoryName": "Western Europe" }
+	]
 }

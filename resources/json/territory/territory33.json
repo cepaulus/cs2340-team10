@@ -2,5 +2,13 @@
 	"territoryId": 33,
 	"territoryName": "Middle East",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 15, "territoryName": "East Africa" },
+		{ "territoryId": 16, "territoryName": "Egypt" },
+		{ "territoryId": 24, "territoryName": "Southern Europe" },
+		{ "territoryId": 25, "territoryName": "Ukraine" }, 
+		{ "territoryId": 27, "territoryName": "Afghanistan" },
+		{ "territoryId": 29, "territoryName": "India" }
+	]
 }

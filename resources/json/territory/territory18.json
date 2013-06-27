@@ -2,5 +2,13 @@
 	"territoryId": 18,
 	"territoryName": "North Africa",
 	"country": { "countryId": 3, "countryName": "Africa" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 11, "territoryName": "Brazil" },
+		{ "territoryId": 14, "territoryName": "Congo" },
+		{ "territoryId": 15, "territoryName": "East Africa" },
+		{ "territoryId": 16, "territoryName": "Egypt" },
+		{ "territoryId": 24, "territoryName": "Southern Europe" },
+		{ "territoryId": 26, "territoryName": "Western Europe" }
+	]
 }

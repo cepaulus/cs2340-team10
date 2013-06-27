@@ -2,5 +2,12 @@
 	"territoryId": 34,
 	"territoryName": "Mongolia",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1
+	"numberOfArmies": 1, 
+	"neighboringTerritories": [
+		{ "territoryId": 28, "territoryName": "China" }, 
+		{ "territoryId": 30, "territoryName": "Irkutsk" },
+		{ "territoryId": 31, "territoryName": "Japan" },
+		{ "territoryId": 32, "territoryName": "Kamchatka" },
+		{ "territoryId": 36, "territoryName": "Siberia" }
+	]
 }

@@ -2,5 +2,10 @@
 	"territoryId": 35,
 	"territoryName": "Siam",
 	"country": { "countryId": 5, "countryName": "Asia" },
-	"numberOfArmies": 1	
+	"numberOfArmies": 1,
+	"neighboringTerritories": [
+		{ "territoryId": 28, "territoryName": "China" },
+		{ "territoryId": 29, "territoryName": "India" },
+		{ "territoryId": 40, "territoryName": "Indonesia" }
+	]
 }
