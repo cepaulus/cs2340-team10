@@ -33,6 +33,7 @@ public class TerritoryDAOMock implements TerritoryDAO {
 		for (int i = 1; i <= TERRITORY_COUNT; i++) {
 			// get the location of each territory's json file
 			fileName = TERRITORY_FILE_PATH + i + ".json";
+			log.debug("Territory file path: " + fileName);
 			// create a territory object from each territory json file
 			Territory territory = (Territory) 
 					RiskMockUtil.convertJsonFileToObject(fileName, Territory.class);
@@ -92,9 +93,10 @@ public class TerritoryDAOMock implements TerritoryDAO {
 					
 					// randomly select a value between 0 and territories.size()-1
 					int territoryIndex = rand.nextInt(territories.size());
+					Territory territory = territories.get(territoryIndex);
 					
 					// add the territory located at that index to the player's list of territories
-					player.addTerritory(territories.get(territoryIndex));
+					player.addTerritory(territory);
 					// remove that territory from the list of territories
 					territories.remove(territoryIndex);
 				}

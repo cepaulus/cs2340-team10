@@ -8,6 +8,7 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 
 import main.java.edu.gatech.cs2340.risk.model.Player;
+import main.java.edu.gatech.cs2340.risk.model.Territory;
 
 public class PlayerUtil {
 
@@ -84,6 +85,13 @@ public class PlayerUtil {
 		return selectedPlayer;
 	}
 
+	/**
+	 * Returns the next player in the determined roll order
+	 * 
+	 * @param players
+	 * @param currentPlayerId
+	 * @return
+	 */
 	public static Player getNextPlayer(ArrayList<Player> players, int currentPlayerId) {
 		int counter = 0;
 		for (Player player : players) {
@@ -96,6 +104,23 @@ public class PlayerUtil {
 			}
 		}
 		return nextPlayer;
+	}
+	
+	/**
+	 * Returns the player who owns the provided territory
+	 * 
+	 * @param players
+	 * @param territory
+	 * @return
+	 */
+	public static Player getPlayerByTerritory(ArrayList<Player> players, Territory territory) {
+		
+		for (Player player : players) {
+			if (player.getTerritories().contains(territory)) {
+				return player;
+			}
+		}
+		return null;
 	}
 
 }

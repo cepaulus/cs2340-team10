@@ -25,7 +25,7 @@ public class ArmyUtil {
 	public static ArrayList<Player> addArmies(ArrayList<Player> players) {
 		
 		// determine number of armies each player should be initially assigned
-		int armyCount = 20 - (players.size() * 5); 
+		int armyCount = 5;// 50 - (players.size() * 5); 
 		log.debug("Each player receives " + armyCount + " armies");
 		
 		for (Player player : players) {
@@ -47,7 +47,7 @@ public class ArmyUtil {
 		int armiesFromTerritories = ( currentPlayer.getTerritories().size() < 9 
 				? 3 : currentPlayer.getTerritories().size()/3 );
 		// get armies earned from owning countries
-		int armiesFromCountries = CountryUtil.getPointsForCountries(currentPlayer); // TODO get number from countryutil
+		int armiesFromCountries = CountryUtil.getPointsForCountries(currentPlayer); 
 		int totalArmies = armiesFromTerritories + armiesFromCountries;
 		return totalArmies;
 	}

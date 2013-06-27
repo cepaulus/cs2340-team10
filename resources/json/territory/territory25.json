@@ -3,7 +3,7 @@
 	"territoryName": "Ukraine",
 	"country": { "countryId": 4, "countryName": "Europe" },
 	"numberOfArmies": 1,
-	"neighboringTerritories": 
+	"neighboringTerritories": [
 		{ "territoryId": 16, "territoryName": "Egypt" },
 		{ "territoryId": 22, "territoryName": "Northern Europe" },
 		{ "territoryId": 23, "territoryName": "Scandinavia" },

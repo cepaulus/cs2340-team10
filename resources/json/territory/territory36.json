@@ -3,11 +3,11 @@
 	"territoryName": "Siberia",
 	"country": { "countryId": 5, "countryName": "Asia" },
 	"numberOfArmies": 1,
-	"neighboringTerritories": {
+	"neighboringTerritories": [
 		{ "territoryId": 28, "territoryName": "China" },
 		{ "territoryId": 30, "territoryName": "Irkutsk" },
 		{ "territoryId": 34, "territoryName": "Mongolia" },
 		{ "territoryId": 37, "territoryName": "Ural" },
 		{ "territoryId": 38, "territoryName": "Yakutsk" }
-	}
+	]
 }
