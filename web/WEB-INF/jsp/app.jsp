@@ -7,18 +7,84 @@
 <% ArrayList<Player> players = 
 (ArrayList<Player>) request.getAttribute("players"); %>
 <% Player currentPlayer = (Player) request.getAttribute("currentPlayer"); %>
+
+<% Integer directionsList = (Integer) request.getAttribute("directionsList"); %>
+<%  
+	String directionsText = "";
+	switch (directionsList) {
+		case 0: break;
+		case 1: directionsText = "Click on a Territory of Your Color to add one Army to it.";
+				break;
+		case 2: directionsText = currentPlayer.getPlayerName() + ", you have " 
+								+ currentPlayer.getAvailableArmies() + " additional " 
+								+ (currentPlayer.getAvailableArmies() > 1 ? "armies" : "army") + " to distribute.";
+				break;
+		case 3: directionsText = "Select a Territory to Attack from";
+				break;
+	}
+%>
+
 <% int stage = (Integer) request.getAttribute("stage"); %>
 <% Territory attackingTerritory = (Territory) request.getAttribute("attackingTerritory"); %>
 <% Territory defendingTerritory = (Territory) request.getAttribute("defendingTerritory"); %>
-<% String message = (String) request.getAttribute("message"); %>
+
 
 <html>
 <head>
 	<title>Game of Risk</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript">
+	<% if (directionsList != 0) { %>
+		$(function() {
+    		$('#directions').modal('show');
+		});
+	<% } %>
+	<% if (stage == 5) { %>
+		$(function() {
+    		$('#attackDialog').modal('show');
+		});
+	<% } %>
+
+	</script>
 </head>
 <body>
+
+	<div id="directions" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="directionsLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			<h3 id="directionsLabel">Directions</h3>
+		</div>
+		<div class="modal-body">
+			<p id="directions-body"><%= directionsText %></p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		</div>
+	</div>
+
+	<div id="attackDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="directionsLabel" aria-hidden="true">
+		<div class="modal-header">
+			<h3 id="directionsLabel">Attack a Territory</h3>
+		</div>
+		<form action="app" method="POST">
+		<div class="modal-body">
+			<h2><% if (stage == 5) out.write(attackingTerritory.getTerritoryName()); %></h2>
+			<p>Select number of armies to attack with</p>
+			<input type="text" name="numArmies">
+			<hr/>
+			<p>Select the neighboring Territory to Attack</p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" class="btn btn-primary" value="Attack!" /> 
+		</form>
+			<form class ="cancelAttack" action="app" method="POST">
+				<input type="submit" class="btn btn-danger" value="Cancel Attack" /> 
+			</form>
+		</div>
+	</div>
 
 <div id="wrap" class="container-fluid">
 
@@ -28,7 +94,7 @@
 	<% 
 		String span = "span" + (12/players.size());
 		boolean oddOffset = false;
-		
+
 		if (players.size()%2 != 0) {
 			span = "span" + (10/players.size());
 			oddOffset = true;
@@ -50,10 +116,6 @@
 
 </div>
 
-<!-- JULIAN!! make this pretty :) -->
-<div id="temp-display-box"> <!-- TEMPORARY DISPLAY BECAUSE I'M NOT GOOD AT CSS -->
- <% out.write(message); %>
-</div>
 
 <div class="row-fluid" id="map">
 

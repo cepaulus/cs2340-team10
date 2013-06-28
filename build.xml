@@ -52,6 +52,9 @@
   	<copy  todir="${build.home}/css">
   	  	   <fileset dir="${web.dir}/res/css"/>
   	</copy>
+    <copy  todir="${build.home}/js">
+           <fileset dir="${web.dir}/res/js"/>
+    </copy>
   	<copy  todir="${build.home}/WEB-INF/lib">
   	  	  <fileset dir="${basedir}/web/WEB-INF/lib"/>
   	</copy>
@@ -61,8 +64,8 @@
   	<copy  todir="${build.home}/WEB-INF/classes">
   	  	  <fileset dir="${basedir}/resources/logger"/>
   	</copy>
-	<copy  todir="${build.home}/images">
-  	  	  <fileset dir="${basedir}/web/images"/>
+	<copy  todir="${build.home}/img">
+  	  	  <fileset dir="${basedir}/web/img"/>
   	</copy>
   </target>
 

@@ -5,13 +5,6 @@
 	margin: 0 auto;
 }
 
-/* This can be removed/replaced whenever!! Temporary placeholder */
-#temp-display-box {
-	width: 200px;
-	border: 1px solid #000;
-	margin-left: -100px;
-	padding: 6px;
-}
 
 #players div.player {
 	background: #ffffff; /* Old browsers */
@@ -36,15 +29,15 @@
 }
 
 #players div.player0.active {
-	border-bottom-color: #38B00A;
+	border-bottom-color: #00da11;
 }
 
 #players div.player1 {
-	border-bottom-color: #87AFC7;
+	border-bottom-color: #a5b9d5;
 }
 
 #players div.player1.active {
-	border-bottom-color: #126fc6;
+	border-bottom-color: #0061da;
 }
 
 #players div.player2 {
@@ -56,19 +49,19 @@
 }
 
 #players div.player3 {
-	border-bottom-color: #FFF68F;
+	border-bottom-color: #f6f872;
 }
 
 #players div.player3.active {
-	border-bottom-color: #FFF00A;
+	border-bottom-color: #f6ff00;
 }
 
 #players div.player4 {
-	border-bottom-color: #947EC4;
+	border-bottom-color: #d5a5d1;
 }
 
 #players div.player4.active {
-	border-bottom-color: #7408BC;
+	border-bottom-color: #da00c8;
 }
 
 #players div.player5 {
@@ -83,7 +76,7 @@
 
 #map {
 	margin-top: 20px;
-	background: url('../images/riskmap.png') no-repeat;
+	background: url('../img/riskmap.png') no-repeat;
 	height: 618px;
 	width: 1024px;
 }
@@ -94,7 +87,7 @@ div.territory {
 	height: 0px;
 }
 
-div.territory form input[type=submit]{
+div.territory form .territoryButton{
 	height: 35px;
 	min-width: 35px;
 	margin: 25px 0px 0px 10px;
@@ -112,61 +105,61 @@ div.territory form input[type=submit]{
 div.territory.player0 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/greenPlayer.png');
+	background: url('../img/greenPlayer.png');
 }
 
-div.territory.player0 form input[type=submit] {
-	background: #38B00A;
+div.territory.player0 form .territoryButton {
+	background: #24c612;
 }
 
 div.territory.player1 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/bluePlayer.png');
+	background: url('../img/bluePlayer.png');
 }
 
-div.territory.player1 form input[type=submit] {
+div.territory.player1 form .territoryButton {
 	background: #126fc6;
 }
 
 div.territory.player2 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/redPlayer.png');
+	background: url('../img/redPlayer.png');
 }
 
-div.territory.player2 form input[type=submit] {
+div.territory.player2 form .territoryButton {
 	background: #c61216;
 }
 
 div.territory.player3 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/yellowPlayer.png');
+	background: url('../img/yellowPlayer.png');
 }
 
-div.territory.player3 form input[type=submit] {
-	background: #FFF00A;
+div.territory.player3 form .territoryButton {
+	background: #c6b312;
 }
 
 div.territory.player4 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/purplePlayer.png');
+	background: url('../img/purplePlayer.png');
 }
 
-div.territory.player4 form input[type=submit] {
-	background: #7408BC; /* #7e12c6;*/
+div.territory.player4 form .territoryButton {
+	background: #7e12c6;
 }
 
 div.territory.player5 form{
 	height: 52px;
 	width: 35px;
-	background: url('../images/cyanPlayer.png');
+	background: url('../img/cyanPlayer.png');
 }
 
-div.territory.player5 form input[type=submit] {
-	background: #00d7da;
+div.territory.player5 form .territoryButton {
+	background: #12c692;
 }
 
 
@@ -380,4 +373,10 @@ div.territory.territory41 {
 div.territory.territory42 {
 	top: 490px;
 	left: 780px;
+}
+
+/* MISCELLANEOUS */
+
+form.cancelAttack {
+	display: inline;
 }
