@@ -234,6 +234,7 @@ public class AppController extends HttpServlet {
 				log.debug("Changing stage to Stage 2");
 				stage = 2;
 				assignAdditionalArmies(request, response);
+				return;
 				/* TODO implement this at a later time
 				stage = 3;
 				message = currentPlayer.getPlayerName() + ", select" 
