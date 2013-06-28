@@ -67,7 +67,8 @@ public class AppController extends HttpServlet {
 		players = territoryService.addTerritories(players);
 		
 		message = currentPlayer.getPlayerName() 
-				+ ", select a territory to reinforce with additional armies.";
+				+ ", select a territory to reinforce with additional armies." +
+				" (Note: players have five armies each for testing purposes)";
 
 		// set attributes to be displayed in the game
 		request.setAttribute("currentPlayer", currentPlayer);
@@ -227,10 +228,17 @@ public class AppController extends HttpServlet {
 				}
 			}
 			if (currentPlayer.getAvailableArmies() == 0) {
+				// temporary fix until next checkpoint is due
+				currentPlayer = PlayerUtil.getNextPlayer(players, currentPlayerId);
+				
+				log.debug("Changing stage to Stage 2");
+				stage = 2;
+				assignAdditionalArmies(request, response);
+				/* TODO implement this at a later time
 				stage = 3;
 				message = currentPlayer.getPlayerName() + ", select" 
 						+ " a territory to attack from or press the Attacks "
-						+ "Complete button (Note: need to make this button!)";
+						+ "Complete button (Note: need to make this button!)";*/
 			}
 			else {
 				message = currentPlayer.getPlayerName() + ", you have " 

@@ -36,15 +36,15 @@
 }
 
 #players div.player0.active {
-	border-bottom-color: #00da11;
+	border-bottom-color: #38B00A;
 }
 
 #players div.player1 {
-	border-bottom-color: #a5b9d5;
+	border-bottom-color: #87AFC7;
 }
 
 #players div.player1.active {
-	border-bottom-color: #0061da;
+	border-bottom-color: #126fc6;
 }
 
 #players div.player2 {
@@ -56,19 +56,19 @@
 }
 
 #players div.player3 {
-	border-bottom-color: #f6f872;
+	border-bottom-color: #FFF68F;
 }
 
 #players div.player3.active {
-	border-bottom-color: #f6ff00;
+	border-bottom-color: #FFF00A;
 }
 
 #players div.player4 {
-	border-bottom-color: #d5a5d1;
+	border-bottom-color: #947EC4;
 }
 
 #players div.player4.active {
-	border-bottom-color: #da00c8;
+	border-bottom-color: #7408BC;
 }
 
 #players div.player5 {
@@ -116,7 +116,7 @@ div.territory.player0 form{
 }
 
 div.territory.player0 form input[type=submit] {
-	background: #24c612;
+	background: #38B00A;
 }
 
 div.territory.player1 form{
@@ -146,7 +146,7 @@ div.territory.player3 form{
 }
 
 div.territory.player3 form input[type=submit] {
-	background: #c6b312;
+	background: #FFF00A;
 }
 
 div.territory.player4 form{
@@ -156,7 +156,7 @@ div.territory.player4 form{
 }
 
 div.territory.player4 form input[type=submit] {
-	background: #7e12c6;
+	background: #7408BC; /* #7e12c6;*/
 }
 
 div.territory.player5 form{
@@ -166,7 +166,7 @@ div.territory.player5 form{
 }
 
 div.territory.player5 form input[type=submit] {
-	background: #12c692;
+	background: #00d7da;
 }
 
 
