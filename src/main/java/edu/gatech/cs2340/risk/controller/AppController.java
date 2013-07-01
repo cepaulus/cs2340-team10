@@ -99,9 +99,9 @@ public class AppController extends HttpServlet {
 				break;
 		case 3: selectAttackingTerritory(request, response);
 				break;
-		case 4: directionsList = 0;
+		/*case 4: directionsList = 0;
 				selectDefendingTerritory(request, response);
-				break;
+				break;*/
 		case 5: directionsList = 0;
 				doAttack(request, response);
 				break;
@@ -303,6 +303,7 @@ public class AppController extends HttpServlet {
 		dispatcher.forward(request,response);
 	}
 
+
 	/**
 	 * Stage 4
 	 * 
@@ -311,6 +312,8 @@ public class AppController extends HttpServlet {
 	 * @throws ServletException
 	 * @throws IOException
 	 */
+
+	/*
 	protected void selectDefendingTerritory(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
@@ -355,6 +358,7 @@ public class AppController extends HttpServlet {
 				getServletContext().getRequestDispatcher("/app.jsp");
 		dispatcher.forward(request,response);
 	}
+	*/
 
 	/**
 	 * Stage 5
