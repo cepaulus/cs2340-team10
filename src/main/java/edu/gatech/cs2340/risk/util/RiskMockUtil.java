@@ -27,7 +27,8 @@ public class RiskMockUtil {
 		Object obj = null;
 
 		try {
-			String fileLoc = RELATIVE_LOCATION + "/webapps/risk/json/" + file;
+			String fileLoc = "./resources/json/" + file;
+			//String fileLoc = RELATIVE_LOCATION + "/webapps/risk/json/" + file;
 			BufferedReader br = new BufferedReader(new FileReader(fileLoc));
 
 			// convert the json string back to object

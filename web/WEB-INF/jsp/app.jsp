@@ -26,7 +26,6 @@
 
 <% int stage = (Integer) request.getAttribute("stage"); %>
 <% Territory attackingTerritory = (Territory) request.getAttribute("attackingTerritory"); %>
-<% Territory defendingTerritory = (Territory) request.getAttribute("defendingTerritory"); %>
 
 
 <html>
@@ -34,17 +33,25 @@
 	<title>Game of Risk</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+	<link rel="stylesheet" type="text/css" href="css/slider.css" /> 
 	<script type="text/javascript" src="js/jquery.min.js" ></script>
 	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap-slider.js" ></script>
 	<script type="text/javascript">
-	<% if (directionsList != 0) { %>
+	<% if (directionsList != 0 && stage != 5) { %>
 		$(function() {
     		$('#directions').modal('show');
 		});
 	<% } %>
 	<% if (stage == 5) { %>
 		$(function() {
-    		$('#attackDialog').modal('show');
+			//$('#attackDialog').modal('show');
+			$('#attackDialog').modal({
+  				keyboard : false,
+  				show : true
+
+			});
+    		$('.slider').slider();
 		});
 	<% } %>
 
@@ -65,15 +72,32 @@
 		</div>
 	</div>
 
+	<%
+
+	String territoryName = "Not Available";
+	int minArmies = 1;
+	int maxArmies = 10;
+	ArrayList<Territory> neighboringTerritories = currentPlayer.getTerritories();
+
+	if (stage == 5) {
+		territoryName = attackingTerritory.getTerritoryName();
+		maxArmies = attackingTerritory.getNumberOfArmies();
+		neighboringTerritories = attackingTerritory.getNeighboringTerritories();
+	}
+
+	%>
+
 	<div id="attackDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="directionsLabel" aria-hidden="true">
 		<div class="modal-header">
 			<h3 id="directionsLabel">Attack a Territory</h3>
 		</div>
 		<form action="app" method="POST">
 		<div class="modal-body">
-			<h2><% if (stage == 5) out.write(attackingTerritory.getTerritoryName()); %></h2>
+			<h2><%= territoryName %></h2>
 			<p>Select number of armies to attack with</p>
-			<input type="text" name="numArmies">
+			<span class="sliderContext minArmies"><%= minArmies %></span>
+			<input type="text" class="slider" value="" data-slider-min="<%= minArmies %>" data-slider-max="<%= maxArmies %>" data-slider-value="1">
+			<span class="sliderContext maxArmies"><%= maxArmies %></span>
 			<hr/>
 			<p>Select the neighboring Territory to Attack</p>
 		</div>
@@ -115,7 +139,6 @@
 	<% } %>
 
 </div>
-
 
 <div class="row-fluid" id="map">
 

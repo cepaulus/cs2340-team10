@@ -12,8 +12,8 @@ public class Territory {
 	private String territoryName;
 	private Country country;
 	private Player owner;
-    private int numberOfArmies; 
-    private ArrayList<Territory> neighboringTerritories;
+        private int numberOfArmies; 
+        private ArrayList<Territory> neighboringTerritories;
 	
 	public Territory(int territoryId, String territoryName) {
 		this.setTerritoryId(territoryId);
@@ -54,17 +54,17 @@ public class Territory {
 		this.owner = owner;
 	}
 
-    public int getNumberOfArmies(){
-    	return numberOfArmies;
-    }
+        public int getNumberOfArmies(){
+    	    return numberOfArmies;
+        }
     
-    public void setNumberOfArmies(int numberOfArmies) {
-    	this.numberOfArmies = numberOfArmies;
-    }
+        public void setNumberOfArmies(int numberOfArmies) {
+    	    this.numberOfArmies = numberOfArmies;
+        }
 	
-    public void addArmy() {
-    	numberOfArmies++;
-    }
+        public void addArmy() {
+        	numberOfArmies++;
+        }
     
 	public ArrayList<Territory> getNeighboringTerritories() {
 		return neighboringTerritories;
