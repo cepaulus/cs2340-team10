@@ -40,4 +40,35 @@ public class TerritoryUtil {
 		}
 		return null;
 	}
+
+	public static Territory getTerritoryFromNeighborById (Territory territory, int neighboringTerritoryId) {
+		for (Territory neighboringTerritory : territory.getNeighboringTerritories()) {
+			if (neighboringTerritory.getTerritoryId() == neighboringTerritoryId) {
+				return neighboringTerritory;
+			}
+		}
+		return null;
+	}
+
+	public static boolean validAttackTerritory(Territory territory) {
+		return territory != null && territory.getNumberOfArmies() > 1 && TerritoryUtil.anyEnemyTerritories(territory);
+	}
+
+	public static boolean canAttack(Player player) {
+		for (Territory territory : player.getTerritories()) {
+			if (validAttackTerritory(territory)) return true;
+		}
+		return false;
+	}
+
+	public static boolean anyEnemyTerritories (Territory territory) {
+		Player owner = territory.getOwner();
+		for (Territory neighboringTerritory : territory.getNeighboringTerritories()) {
+			if (!neighboringTerritory.getOwner().equals(owner)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
