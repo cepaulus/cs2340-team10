@@ -123,4 +123,59 @@ public class PlayerUtil {
 		return null;
 	}
 
+	public static boolean calculateAttackWinner(int[] attackingArmyDice, int[] defendingArmyDice ) {
+
+		int attackingDiceMax = 0;
+		int defendingDiceMax = 0;
+
+		for (int i = 0; i < Math.max(attackingArmyDice.length, defendingArmyDice.length); i++) {
+			if (i < defendingArmyDice.length) {
+				if (defendingArmyDice[i] > defendingDiceMax) {
+					defendingDiceMax = defendingArmyDice[i];
+				}
+			}
+			if (i < attackingArmyDice.length) {
+				if (attackingArmyDice[i] > attackingDiceMax) {
+					attackingDiceMax = attackingArmyDice[i];
+				}
+			}
+		}
+
+		return attackingDiceMax > defendingDiceMax;
+	}
+
+	public static String doAttack(boolean attackerWin, int attackingArmyNum, int defendingArmyNum, Territory attackingTerritory, Territory defendingTerritory) {
+
+		String attackResultsMessage = "";
+
+		if (attackerWin) {
+			attackResultsMessage = "Attacker wins! ";
+			if (defendingArmyNum > 1) {
+				defendingTerritory.removeNumberOfArmies(2);
+				attackResultsMessage += "Two Armies Removed.";
+			} else {
+				defendingTerritory.removeNumberOfArmies(1);
+				attackResultsMessage += "One Army Removed.";
+			}
+			if (defendingTerritory.getNumberOfArmies() < 1) {
+				attackResultsMessage = "Attacker wins! Territory acquired.";
+				defendingTerritory.getOwner().removeTerritory(defendingTerritory);
+				attackingTerritory.getOwner().addTerritory(defendingTerritory);
+				defendingTerritory.setNumberOfArmies(attackingArmyNum);
+				attackingTerritory.removeNumberOfArmies(attackingArmyNum);
+			} 
+		} else {
+			attackResultsMessage = "Attack unsuccessful. ";
+			if (attackingArmyNum > 1) {
+				attackingTerritory.removeNumberOfArmies(2);
+				attackResultsMessage += "Two Armies Removed.";
+			} else {
+				attackingTerritory.removeNumberOfArmies(1);
+				attackResultsMessage += "One Army Removed.";
+			}
+		}
+
+		return attackResultsMessage;
+	}
+
 }
