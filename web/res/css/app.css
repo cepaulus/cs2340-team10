@@ -1,20 +1,26 @@
 /* Contains the CSS for the Risk Game page */
-  
 #wrap {
 	width: 1024px;
 	margin: 0 auto;
 }
 
-
 #players div.player {
 	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#fbfbfb), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ffffff 0%,#fbfbfb 47%,#f7f7f7 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(47%, #fbfbfb), color-stop(100%, #f7f7f7));
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
+	/* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(     startColorstr='#ffffff',
+		endColorstr='#f7f7f7', GradientType=0); /* IE6-9 */
 	border: 1px solid #CCC;
 	border-bottom: 10px solid #CCC;
 	border-top: none;
@@ -22,9 +28,7 @@
 	border-radius: 0 0 15px 15px;
 }
 
-
 /* PLAYER COLORS */
-
 #players div.player1 {
 	border-bottom-color: #a5d5a8;
 }
@@ -74,7 +78,6 @@
 }
 
 /* MAP STYLES */
-
 #map {
 	margin-top: 20px;
 	background: url('../img/riskmap.png') no-repeat;
@@ -88,7 +91,7 @@ div.territory {
 	height: 0px;
 }
 
-div.territory form .territoryButton{
+div.territory form .territoryButton {
 	height: 35px;
 	min-width: 35px;
 	margin: 25px 0px 0px 10px;
@@ -99,11 +102,11 @@ div.territory form .territoryButton{
 	text-shadow: #000 0px 0px 5px;
 	font-weight: bold;
 	-webkit-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow:    0px 1px 5px rgba(50, 50, 50, 0.75);
-	box-shadow:         0px 1px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
 }
 
-div.territory.player1 form{
+div.territory.player1 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/greenPlayer.png');
@@ -113,7 +116,7 @@ div.territory.player1 form .territoryButton {
 	background: #24c612;
 }
 
-div.territory.player2 form{
+div.territory.player2 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/bluePlayer.png');
@@ -123,7 +126,7 @@ div.territory.player2 form .territoryButton {
 	background: #126fc6;
 }
 
-div.territory.player3 form{
+div.territory.player3 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/redPlayer.png');
@@ -133,18 +136,17 @@ div.territory.player3 form .territoryButton {
 	background: #c61216;
 }
 
-div.territory.player4 form{
+div.territory.player4 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/yellowPlayer.png');
 }
 
-
 div.territory.player4 form .territoryButton {
 	background: #c6b312;
 }
 
-div.territory.player5 form{
+div.territory.player5 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/purplePlayer.png');
@@ -154,7 +156,7 @@ div.territory.player5 form .territoryButton {
 	background: #7e12c6;
 }
 
-div.territory.player6 form{
+div.territory.player6 form {
 	height: 52px;
 	width: 35px;
 	background: url('../img/cyanPlayer.png');
@@ -164,10 +166,7 @@ div.territory.player6 form .territoryButton {
 	background: #12c692;
 }
 
-
-
 /* TERRITORY PLACING */
-
 div.territory.territory1 {
 	top: 50px;
 	left: 50px;
@@ -378,38 +377,39 @@ div.territory.territory42 {
 }
 
 /* SLIDER */
-
 span.sliderContext {
 	padding: 20px;
 	font-weight: bold;
 }
 
 /* OPTION DIALOG */
-
 input.optionBtn {
 	width: 200px;
 	margin: auto 150px;
 }
 
-/* ATTACK DIALOG */
+a.optionBtn {
+	margin: 10px 150px 20px 150px;
+	width: 160px
+}
 
+/* ATTACK DIALOG */
 #attackDialog form.cancelAttack {
 	display: inline;
 }
 
-
 #attackDialog .modal-footer {
-    margin-bottom: -20px;
+	margin-bottom: -20px;
 }
 
 #attackDialog label.radio {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 15px 10px 30px;
-    background: #CCC;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    color: #FFF;
+	display: inline-block;
+	margin: 10px;
+	padding: 10px 15px 10px 30px;
+	background: #CCC;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	color: #FFF;
 	text-shadow: #000 0px 0px 5px;
 }
 
@@ -438,7 +438,6 @@ input.optionBtn {
 }
 
 /* ATTACK RESULTS */
-
 h4#attackResultsMessage {
 	float: left;
 }
@@ -454,9 +453,9 @@ div.dice {
 	-webkit-border-radius: 10px;
 	box-shadow: #888 0px 0px 5px;
 	-webkit-box-shadow: #888 0px 0px 5px;
-    -moz-box-shadow: #888 0px 0px 5px;
-    margin: 10px;
-    display: inline-block;
+	-moz-box-shadow: #888 0px 0px 5px;
+	margin: 10px;
+	display: inline-block;
 }
 
 .attackRolls div.value1 {
@@ -480,7 +479,7 @@ div.dice {
 }
 
 .defenceRolls div.value3 {
-	background: url("../img/diceWhite.jpg") 120px 0px; 
+	background: url("../img/diceWhite.jpg") 120px 0px;
 }
 
 .attackRolls div.value4 {

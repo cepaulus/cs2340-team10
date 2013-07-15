@@ -49,10 +49,70 @@ audio,canvas,video {
 	*zoom: 1
 }
 
-audio:not ([controls] ){
-	display: none
-}
+audio
 
+
+
+
+
+
+
+
+:not
+
+
+
+
+ 
+
+
+
+
+(
+[
+controls
+]
+
+
+
+
+ 
+
+
+
+
+){
+display
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+none
+
+
+
+
+
+
+
+
+
+
+}
 html {
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -2818,7 +2878,7 @@ table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span
 	color: #000;
 	text-shadow: 0 1px 0 #fff;
 	opacity: .2;
-	filter: alpha(opacity = 20)
+	filter: alpha(opacity =           20)
 }
 
 .close:hover,.close:focus {
@@ -2826,7 +2886,7 @@ table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span
 	text-decoration: none;
 	cursor: pointer;
 	opacity: .4;
-	filter: alpha(opacity = 40)
+	filter: alpha(opacity =           40)
 }
 
 button.close {
@@ -2888,6 +2948,7 @@ button.close {
 
 .btn:active,.btn.active {
 	background-color: #ccc \9
+
 }
 
 .btn:first-child {
@@ -2925,7 +2986,7 @@ button.close {
 	cursor: default;
 	background-image: none;
 	opacity: .65;
-	filter: alpha(opacity = 65);
+	filter: alpha(opacity =           65);
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none
@@ -3019,6 +3080,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-primary:active,.btn-primary.active {
 	background-color: #039 \9
+
 }
 
 .btn-warning {
@@ -3049,6 +3111,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-warning:active,.btn-warning.active {
 	background-color: #c67605 \9
+
 }
 
 .btn-danger {
@@ -3079,6 +3142,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-danger:active,.btn-danger.active {
 	background-color: #942a25 \9
+
 }
 
 .btn-success {
@@ -3109,6 +3173,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-success:active,.btn-success.active {
 	background-color: #408140 \9
+
 }
 
 .btn-info {
@@ -3139,6 +3204,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-info:active,.btn-info.active {
 	background-color: #24748c \9
+
 }
 
 .btn-inverse {
@@ -3169,6 +3235,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 
 .btn-inverse:active,.btn-inverse.active {
 	background-color: #080808 \9
+
 }
 
 button.btn,input[type="submit"].btn {
@@ -3791,7 +3858,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 	border-top-color: #fff;
 	border-bottom-color: #fff;
 	opacity: 1;
-	filter: alpha(opacity = 100)
+	filter: alpha(opacity =           100)
 }
 
 .tabs-stacked .open>a:hover,.tabs-stacked .open>a:focus {
@@ -4216,6 +4283,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .navbar .btn-navbar:active,.navbar .btn-navbar.active {
 	background-color: #ccc \9
+
 }
 
 .navbar .btn-navbar .icon-bar {
@@ -4474,6 +4542,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .btn-navbar:active,.navbar-inverse .btn-navbar.active {
 	background-color: #000 \9
+
 }
 
 .breadcrumb {
@@ -4700,7 +4769,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .modal-backdrop,.modal-backdrop.fade.in {
 	opacity: .8;
-	filter: alpha(opacity = 80)
+	filter: alpha(opacity =           80)
 }
 
 .modal {
@@ -4808,13 +4877,13 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 	font-size: 11px;
 	line-height: 1.4;
 	opacity: 0;
-	filter: alpha(opacity = 0);
+	filter: alpha(opacity =           0);
 	visibility: visible
 }
 
 .tooltip.in {
 	opacity: .8;
-	filter: alpha(opacity = 80)
+	filter: alpha(opacity =           80)
 }
 
 .tooltip.top {
@@ -5608,7 +5677,7 @@ to {
 	-moz-border-radius: 23px;
 	border-radius: 23px;
 	opacity: .5;
-	filter: alpha(opacity = 50)
+	filter: alpha(opacity =           50)
 }
 
 .carousel-control.right {
@@ -5620,7 +5689,7 @@ to {
 	color: #fff;
 	text-decoration: none;
 	opacity: .9;
-	filter: alpha(opacity = 90)
+	filter: alpha(opacity =           90)
 }
 
 .carousel-indicators {

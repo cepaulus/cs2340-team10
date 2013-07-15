@@ -25,7 +25,7 @@
 		</layout>
 	</appender>
 
-	<!--sets the priority log level for Risk game classes  -->
+	<!--sets the priority log level for Risk game classes -->
 	<logger name="main.java.edu.gatech.cs2340.risk">
 		<level value="debug" />
 	</logger>

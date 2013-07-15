@@ -79,6 +79,8 @@ public class TerritoryDAOMock implements TerritoryDAO {
 	public ArrayList<Player> addTerritories(ArrayList<Player> players) {
 		// get all territories from jsons
 		ArrayList<Territory> territories = getTerritories();
+		cleanUpNeighboringTerritories(territories);
+
 		Random rand = new Random();
 		
 		// continue until all territories have been assigned to players
@@ -111,6 +113,17 @@ public class TerritoryDAOMock implements TerritoryDAO {
 		}
 		// return the updated list of players 
 		return players;
+	}
+
+	private static void cleanUpNeighboringTerritories(ArrayList<Territory> territories) {
+		ArrayList<Territory> tempNeighboringTerritories;
+		for (Territory territory : territories) {
+			tempNeighboringTerritories = new ArrayList<Territory>();
+			for (Territory neighboringTerritory : territory.getNeighboringTerritories()) {
+				tempNeighboringTerritories.add(territories.get(neighboringTerritory.getTerritoryId()-1));
+			}
+			territory.setNeighboringTerritories(tempNeighboringTerritories);
+		}
 	}
 
 
