@@ -108,7 +108,12 @@
 	if (stage == 4) {
 		String territoryName = attackingTerritory.getTerritoryName();
 		int minArmies = 1;
-		int maxArmies = attackingTerritory.getNumberOfArmies() - 1;
+                int maxArmies = 1;
+                if (attackingTerritory.getNumberOfArmies() > 3) {
+                       maxArmies = 3;
+                } else {
+                       maxArmies = attackingTerritory.getNumberOfArmies() - 1;
+                }
 		ArrayList<Territory> neighboringTerritories = attackingTerritory.getNeighboringTerritories();
 
 	%>
@@ -206,7 +211,13 @@
 	if (stage == 6) {
 		String territoryName = defendingTerritory.getTerritoryName();
 		int minArmies = 1;
-		int maxArmies = defendingTerritory.getNumberOfArmies();
+		int maxArmies = 2;
+                if (defendingTerritory.getNumberOfArmies() > 2) {
+                       maxArmies = 2;
+                } 
+                else {
+                       maxArmies = 1;
+		}
 	%>
 
 	<div id="defendingArmyNumDialog" class="modal hide fade" tabindex="-1"
