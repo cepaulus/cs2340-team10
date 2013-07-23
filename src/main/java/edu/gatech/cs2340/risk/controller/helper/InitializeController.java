@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import main.java.edu.gatech.cs2340.risk.dao.mock.TerritoryDAOMock;
 import main.java.edu.gatech.cs2340.risk.model.Risk;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
@@ -24,10 +23,21 @@ import main.java.edu.gatech.cs2340.risk.util.TerritoryUtil;
  * @author Alec Fenichal
  * @author Andrew Osborn
  */
+@SuppressWarnings("serial")
 public class InitializeController extends HttpServlet {
 	
-	private static Logger log = Logger.getLogger(InitializeController.class);
-	private TurnController rotateController = new TurnController();
+	private static Logger log;
+	private TurnController turnController;
+
+	public InitializeController() {
+		this(new TurnController());
+	}
+
+	public InitializeController(TurnController turnController) {
+		super();
+		log = Logger.getLogger(InitializeController.class);
+		this.turnController = turnController;
+	}
 	
 	/**
 	 * Distributes original armies at the beginning of the game
@@ -83,7 +93,7 @@ public class InitializeController extends HttpServlet {
 				log.debug("Entering secondary stage!");
 				risk.setStage(RiskConstants.SETUP_TURN);
 				risk.setStep(RiskConstants.BEFORE_TURN);
-				rotateController.doPost(request, response, risk);
+				turnController.doPost(request, response, risk);
 				return;
 			}
 		} else 

@@ -2,37 +2,23 @@
 
 <!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration>
-	<appender
-		name="stdout"
-		class="org.apache.log4j.ConsoleAppender"
-	>
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
-			<param
-				name="ConversionPattern"
-				value="%d %-5p %c{1}:%L %m %n" />
-			<!-- 8 ConversionPattern format specification 9 %d inserts the date; you can specify the format (%d{yyyy-MM-dd HH:mm:ss,SSS}) 10 %-5p inserts the priority log level, 5 characters, left justified 11 %c{1} inserts the name of the class 12 %L inserts the line number 13 %m inserts the user message 14 %n inserts the separator (for example, a new line) 15 -->
+			<param name="ConversionPattern" value="%d %-5p %c{1}:%L %m %n" />
+			<!-- 8 ConversionPattern format specification 9 %d inserts the date; you
+				can specify the format (%d{yyyy-MM-dd HH:mm:ss,SSS}) 10 %-5p inserts the
+				priority log level, 5 characters, left justified 11 %c{1} inserts the name
+				of the class 12 %L inserts the line number 13 %m inserts the user message
+				14 %n inserts the separator (for example, a new line) 15 -->
 		</layout>
 	</appender>
-	<appender
-		name="fileAppender"
-		class="org.apache.log4j.RollingFileAppender"
-	>
-		<param
-			name="Threshold"
-			value="INFO" />
-		<param
-			name="MaxFileSize"
-			value="512KB" />
-		<param
-			name="MaxBackupIndex"
-			value="10" />
-		<param
-			name="File"
-			value="risk.log" />
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+		<param name="MaxFileSize" value="512KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="File" value="risk.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param
-				name="ConversionPattern"
-				value="%d %-5p %c{1}:%L %m %n" />
+			<param name="ConversionPattern" value="%d %-5p %c{1}:%L %m %n" />
 		</layout>
 	</appender>
 	<!--sets the priority log level for Risk game classes -->
