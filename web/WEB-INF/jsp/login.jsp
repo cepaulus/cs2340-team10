@@ -7,16 +7,8 @@
 <html>
 <head>
 <title>Risk - New Game</title>
-<link
-	rel="stylesheet"
-	type="text/css"
-	href="risk/css/bootstrap.min.css"
-/>
-<link
-	rel="stylesheet"
-	type="text/css"
-	href="risk/css/login.css"
-/>
+<link rel="stylesheet" type="text/css" href="risk/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="risk/css/login.css" />
 </head>
 <body>
 	<div class="container">
@@ -35,40 +27,18 @@
 						<%
 							Player player = players.get(id);
 						%>
-						<form
-							action="/risk"
-							method="POST"
-							class="prevSubmissionName"
-						>
+						<form action="/risk" method="POST" class="prevSubmissionName">
 							<!-- hidden operation element to simulate HTTP PUT method in server -->
-							<input
-								type="hidden"
-								name="operation"
-								value="PUT"
-							/> <input
-								type="hidden"
-								name="name"
-								value="<%=player.getPlayerName()%>"
-							/> <span class="input-large uneditable-input"><%=player.getPlayerName()%></span>
+							<input type="hidden" name="operation" value="PUT" /> <input
+								type="hidden" name="name" value="<%=player.getPlayerName()%>" />
+							<span class="input-large uneditable-input"><%=player.getPlayerName()%></span>
 						</form>
-						<form
-							action="/risk"
-							method="POST"
-						>
+						<form action="/risk" method="POST">
 							<!-- hidden operation element to simulate HTTP DELETE method in server -->
-							<input
-								type="hidden"
-								name="operation"
-								value="DELETE"
-							/> <input
-								type="hidden"
-								name="id"
-								value="<%=id%>"
-							/> <input
-								class="btn btn-danger span2 offset1"
-								type="submit"
-								value="Delete"
-							/>
+							<input type="hidden" name="operation" value="DELETE" /> <input
+								type="hidden" name="id" value="<%=id%>" /> <input
+								class="btn btn-danger span2 offset1" type="submit"
+								value="Delete" />
 						</form>
 					</div>
 					<%
@@ -79,22 +49,11 @@
 						<%
 							if (players.size() < 6) {
 						%>
-						<form
-							action="/risk"
-							method="POST"
-							class="newSubmissionName"
-							name="newPlayer"
-						>
-							<input
-								class="input-large"
-								type="text"
-								name="name"
-							/> <input
-								class="btn btn-primary span2 offset1"
-								type="submit"
-								value="Add"
-								tabindex="-1"
-							/>
+						<form action="/risk" method="POST" class="newSubmissionName"
+							name="newPlayer">
+							<input class="input-large" type="text" name="name" /> <input
+								class="btn btn-primary span2 offset1" type="submit" value="Add"
+								tabindex="-1" />
 						</form>
 						<%
 							}
@@ -106,17 +65,9 @@
 					<%
 						if (players.size() >= 3 && players.size() <= 6) {
 					%>
-					<form
-						action="risk/app"
-						method="GET"
-						class="span12 text-center"
-					>
-						<a
-							class="btn btn-success btn-large"
-							id="btnStart"
-							href="javascript:;"
-							onclick="parentNode.submit();"
-						><%="Start Game"%></a>
+					<form action="risk/app" method="GET" class="span12 text-center">
+						<a class="btn btn-success btn-large" id="btnStart"
+							href="javascript:;" onclick="parentNode.submit();"><%="Start Game"%></a>
 					</form>
 				</div>
 				<%
@@ -127,10 +78,7 @@
 	</div>
 </body>
 
-<script
-	type="text/javascript"
-	language="JavaScript"
->
+<script type="text/javascript" language="JavaScript">
 	<%
 	if (players.size() < 6) {
 	%>

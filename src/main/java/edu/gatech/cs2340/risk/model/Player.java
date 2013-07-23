@@ -2,6 +2,15 @@ package main.java.edu.gatech.cs2340.risk.model;
 
 import java.util.ArrayList;
 
+/**
+ * Basic class that holds information about a player in the game
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Player {
 
 	private String playerName;

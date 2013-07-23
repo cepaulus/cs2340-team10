@@ -27,7 +27,7 @@ public interface RiskConstants {
 	// steps corresponding to stage 4 (move armies)
 	public static final int SELECT_SOURCE_TERRITORY = 1;
 	public static final int SELECT_DESTINATION_TERRITORY = 2;
-	public static final int SELECT_ARMIES_TRANSFERRED = 3;
+	public static final int ATTACK_MOVE = 3;
 	public static final int DO_MOVE = 4;
 
 	// direction numbers

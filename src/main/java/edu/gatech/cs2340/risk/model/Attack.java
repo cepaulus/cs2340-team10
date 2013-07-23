@@ -2,6 +2,16 @@ package main.java.edu.gatech.cs2340.risk.model;
 
 import main.java.edu.gatech.cs2340.risk.util.DiceUtil;
 
+/**
+ * A class that contains the parameters needed for an attack, provides getters
+ * and setters, and has an attack method.
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Attack {
 
 	Territory attackingTerritory;
@@ -11,7 +21,6 @@ public class Attack {
 	int attackingArmyNum;
 	int defendingArmyNum;
 
-	// null case for Attack to avoid throwing a Null Pointer Exception
 	public Attack() {
 		this.attackingTerritory = new Territory();
 		this.defendingTerritory = new Territory();
@@ -20,7 +29,7 @@ public class Attack {
 	public Attack (Territory attackingTerritory) {
 		this.attackingTerritory = attackingTerritory;
 	}
-
+	
 	public void setDefendingTerritory (Territory defendingTerritory) {
 		this.defendingTerritory = defendingTerritory;
 	}
@@ -34,11 +43,11 @@ public class Attack {
 	}
 
 	public Territory getAttackingTerritory() {
-		return ( attackingTerritory == null ? new Territory() : attackingTerritory );
+		return (attackingTerritory == null ? new Territory() : attackingTerritory);
 	}
 
 	public Territory getDefendingTerritory() {
-		return ( defendingTerritory == null ? new Territory() : defendingTerritory );
+		return (defendingTerritory == null ? new Territory() : defendingTerritory);
 	}
 
 	public int[] getAttackingArmyDice() {
@@ -50,11 +59,17 @@ public class Attack {
 	}
 
 
-
+	/**
+	 * Roll attacking and defending dice and produce a results message to return
+	 * as a string
+	 * 
+	 * @return results
+	 */
 	public String doAttack() {
 
 		attackingArmyDice = DiceUtil.rollDice(Math.min(attackingArmyNum, 3));
-		defendingArmyDice = DiceUtil.rollDice(Math.min(defendingTerritory.getNumberOfArmies(), 2));
+		defendingArmyDice = 
+				DiceUtil.rollDice(Math.min(defendingTerritory.getNumberOfArmies(), 2));
 
 		int[] results = calculateAttackWinners();
 		this.removeArmies(results);
@@ -62,9 +77,15 @@ public class Attack {
 		return createResultsMessage(results);
 	}
 	
+	/**
+	 * Method to test attacking by creating non-randomized dice
+	 * 
+	 * @return results
+	 */
 	public String doBiasedAttack() {
 		attackingArmyDice = new int[Math.min(attackingArmyNum, 3)];
-		defendingArmyDice = new int[Math.min(defendingTerritory.getNumberOfArmies(), 2)];
+		defendingArmyDice = 
+				new int[Math.min(defendingTerritory.getNumberOfArmies(), 2)];
 		
 		for (int i = 0; i < attackingArmyDice.length; i++) {
 			attackingArmyDice[i] = 6;
@@ -78,7 +99,10 @@ public class Attack {
 
 		return createResultsMessage(results);
 	}
-
+	/**
+	 * Calcuates number of wins for the attacker
+	 * @return results (int[] results = {defendingLoss, attackingLoss})
+	 */
 	private int[] calculateAttackWinners() {
 
 		int defendingLoss = 0;
@@ -99,6 +123,11 @@ public class Attack {
 		return results;
 	}
 
+	/**
+	 * Creates a prompt message for the result of the attack 
+	 * @param results
+	 * @return resultsMessage
+	 */
 	private String createResultsMessage(int[] results) {
 		if (defendingTerritoryIsConquered()) {
 			return "Attack Successful! Territory acquired.";
@@ -108,13 +137,19 @@ public class Attack {
 		for (int i = 0; i < results.length; i++) {
 			attackSide = (i == 0 ? "defending" : "attacking");
 			if (results[i] > 0) {
-				resultsMessage += "" + results[i] + " " + attackSide + " arm" + (results[i] < 2 ? "y" : "ies") + " removed. ";
+				resultsMessage += "" + results[i] + " " + 
+						attackSide + " arm" + (results[i] < 2 ? "y" : "ies") 
+						+ " removed. ";
 			}
 		}
 
 		return resultsMessage;
 	}
 
+	/**
+	 * removes losses
+	 * @param results
+	 */
 	private void removeArmies(int[] results) {
 		defendingTerritory.removeNumberOfArmies(results[0]);
 		attackingTerritory.removeNumberOfArmies(results[1]);
@@ -123,12 +158,17 @@ public class Attack {
 			this.conquerTerritory();
 		}
 	}
-
+	
+	/**
+	 * Changes owner of territory
+	 */
 	private void conquerTerritory() {
 		defendingTerritory.getOwner().removeTerritory(defendingTerritory);
 		attackingTerritory.getOwner().addTerritory(defendingTerritory);
 	}
-
+	/**
+	 * @return true if numArmies < 1, false otherwise
+	 */
 	public boolean defendingTerritoryIsConquered() {
 		return defendingTerritory.getNumberOfArmies() < 1;
 	}

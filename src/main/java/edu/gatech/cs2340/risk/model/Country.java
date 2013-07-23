@@ -2,6 +2,16 @@ package main.java.edu.gatech.cs2340.risk.model;
 
 import java.util.ArrayList;
 
+/**
+ * Basic class for a country that owns territories and has an owner and
+ * point value 
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Country {
 	
 	private int countryId;
@@ -10,7 +20,8 @@ public class Country {
 	private Player owner;
 	private int pointValue;
 	
-	public Country(int countryId, String countryName, ArrayList<Territory> territories, int pointValue) {
+	public Country(int countryId, String countryName, 
+			ArrayList<Territory> territories, int pointValue) {
 		this.setCountryId(countryId);
 		this.setCountryName(countryName);
 		this.setTerritories(territories);
