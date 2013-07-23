@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.util.PlayerUtil;
 
+/**
+ * Basic class that holds all the data essential to a game of risk
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Risk {
 
 	private AppController appController;

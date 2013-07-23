@@ -1,5 +1,15 @@
 package main.java.edu.gatech.cs2340.risk.model;
 
+/**
+ * Basic class to hold the origin, destination, and the number of armies during 
+ * a movement
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Move {
 
 	Territory source;
@@ -15,7 +25,6 @@ public class Move {
 		this(source, null);
 	}
 	
-	// null move case to avoid throwing null pointer exception
 	public Move() {
 		this(null, null);
 	}

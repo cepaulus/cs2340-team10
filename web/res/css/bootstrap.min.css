@@ -58,12 +58,20 @@ audio
 
 
 
+
+
+
+
 :not
 
 
 
 
+
+
  
+
+
 
 
 
@@ -76,7 +84,11 @@ controls
 
 
 
+
+
  
+
+
 
 
 
@@ -91,7 +103,13 @@ display
 
 
 
+
+
+
+
 :
+
+
 
 
 
@@ -101,7 +119,13 @@ display
 
 
 
+
+
 none
+
+
+
+
 
 
 
@@ -2878,7 +2902,7 @@ table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span
 	color: #000;
 	text-shadow: 0 1px 0 #fff;
 	opacity: .2;
-	filter: alpha(opacity =           20)
+	filter: alpha(opacity =             20)
 }
 
 .close:hover,.close:focus {
@@ -2886,7 +2910,7 @@ table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span
 	text-decoration: none;
 	cursor: pointer;
 	opacity: .4;
-	filter: alpha(opacity =           40)
+	filter: alpha(opacity =             40)
 }
 
 button.close {
@@ -2986,7 +3010,7 @@ button.close {
 	cursor: default;
 	background-image: none;
 	opacity: .65;
-	filter: alpha(opacity =           65);
+	filter: alpha(opacity =             65);
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none
@@ -3858,7 +3882,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 	border-top-color: #fff;
 	border-bottom-color: #fff;
 	opacity: 1;
-	filter: alpha(opacity =           100)
+	filter: alpha(opacity =             100)
 }
 
 .tabs-stacked .open>a:hover,.tabs-stacked .open>a:focus {
@@ -4769,7 +4793,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .modal-backdrop,.modal-backdrop.fade.in {
 	opacity: .8;
-	filter: alpha(opacity =           80)
+	filter: alpha(opacity =             80)
 }
 
 .modal {
@@ -4877,13 +4901,13 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 	font-size: 11px;
 	line-height: 1.4;
 	opacity: 0;
-	filter: alpha(opacity =           0);
+	filter: alpha(opacity =             0);
 	visibility: visible
 }
 
 .tooltip.in {
 	opacity: .8;
-	filter: alpha(opacity =           80)
+	filter: alpha(opacity =             80)
 }
 
 .tooltip.top {
@@ -5677,7 +5701,7 @@ to {
 	-moz-border-radius: 23px;
 	border-radius: 23px;
 	opacity: .5;
-	filter: alpha(opacity =           50)
+	filter: alpha(opacity =             50)
 }
 
 .carousel-control.right {
@@ -5689,7 +5713,7 @@ to {
 	color: #fff;
 	text-decoration: none;
 	opacity: .9;
-	filter: alpha(opacity =           90)
+	filter: alpha(opacity =             90)
 }
 
 .carousel-indicators {

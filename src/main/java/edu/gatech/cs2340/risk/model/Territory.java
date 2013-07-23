@@ -2,6 +2,16 @@ package main.java.edu.gatech.cs2340.risk.model;
 
 import java.util.ArrayList;
 
+/**
+ * A basic class for a territory that provides getters and setters for information
+ * such as the territory's name, ID, owner, country, neighboring territores and
+ * armies
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public class Territory {
 
 	private int territoryId;
