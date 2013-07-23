@@ -13,20 +13,40 @@ import main.java.edu.gatech.cs2340.risk.dao.mock.TerritoryDAOMock;
 import main.java.edu.gatech.cs2340.risk.model.Risk;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.ArmyUtil;
+import main.java.edu.gatech.cs2340.risk.util.PlayerUtil;
+import main.java.edu.gatech.cs2340.risk.util.TerritoryUtil;
 import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
 
 /**
  * Stage 2 (RiskConstants.SETUP_TURN)
  *
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
  */
 public class TurnController extends HttpServlet {
 	
 	private static Logger log = Logger.getLogger(TurnController.class);
+	private boolean hasFortified;
 	
+	/**
+	 * Calls helper methods contained within TurnController that correspond 
+	 * to the steps in Stage 2
+	 * 
+	 * @param request
+	 * @param response
+	 * @param risk
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	public void doPost(HttpServletRequest request,
-			HttpServletResponse response, Risk risk) throws IOException, ServletException {
+			HttpServletResponse response, Risk risk) 
+					throws IOException, ServletException {
 		
 		log.debug("In doPost()");
+		
 		switch (risk.getStep()) {
 			case RiskConstants.BEFORE_TURN: 
 				assignAdditionalArmies(request, response, risk);
@@ -51,10 +71,10 @@ public class TurnController extends HttpServlet {
 	 * @throws IOException
 	 */
 	protected void assignAdditionalArmies(HttpServletRequest request, 
-			HttpServletResponse response, Risk risk) throws ServletException, IOException {
+			HttpServletResponse response, Risk risk) 
+					throws ServletException, IOException {
 
 		log.debug("in assignAdditionalArmies()");
-		// determine the number of armies the player should receive
 		int armiesToAssign = ArmyUtil.getArmiesToAssign(risk.getCurrentPlayer());
 		log.debug("Player " + risk.getCurrentPlayer() + " is receiving " 
 				+ armiesToAssign + " additional armies");
@@ -67,25 +87,30 @@ public class TurnController extends HttpServlet {
 	}
 	
 	/**
-	 * Called when player is distributing their allotted armies at the beginning of their turn
+	 * Called when player is distributing their allotted armies at the beginning 
+	 * of their turn.
+	 * 
 	 * Corresponds to Stage SETUP_TURN, Step BEGINNING_OF_TURN
 	 * 
 	 * @param request
 	 * @param response
-	 * @param risk  Risk object containing variables for the current game session
+	 * @param risk-Risk object containing variables for the current game session
 	 * @throws IOException
 	 * @throws ServletException
 	 */
 	protected void distributeAdditionalArmies(HttpServletRequest request,
-			HttpServletResponse response, Risk risk) throws IOException, ServletException {
+			HttpServletResponse response, Risk risk) 
+					throws IOException, ServletException {
 
 		log.debug("In distributeAdditionalArmies()");
+		
+		int currentPlayerID = 
+				Integer.parseInt(request.getParameter("currentPlayerId"));
+		risk.setCurrentPlayer(currentPlayerID);
 
-		risk.setCurrentPlayer(Integer.parseInt(request.getParameter("currentPlayerId")));
-
-		TerritoryDAOMock territoryDAO = new TerritoryDAOMock();
-		Territory currentTerritory = territoryDAO.getTerritory(risk.getCurrentPlayer(), 
-				Integer.parseInt(request.getParameter("territoryId")));
+		int territoryId = Integer.parseInt(request.getParameter("territoryId"));
+		Territory currentTerritory =
+				TerritoryUtil.getTerritoryById(risk.getCurrentPlayer(), territoryId);
 
 		if (currentTerritory != null && risk.getCurrentPlayer().getAvailableArmies() > 0) {
 
@@ -99,9 +124,9 @@ public class TurnController extends HttpServlet {
 				risk.setStep(RiskConstants.SHOW_OPTIONS);
 			}
 
-		} else {
+		} else 
 			log.debug("Territory does not belong to player");
-		}
+		
 		risk.getAppController().forwardUpdatedVariables(request, response, risk);
 	}
 	
@@ -125,25 +150,32 @@ public class TurnController extends HttpServlet {
 
 		if (option != null) {
 			switch (option) {
-				case "attack":		risk.setStage(RiskConstants.ATTACK);
-									risk.setStep(RiskConstants.SELECT_ATTACKING_TERRITORY);
-									risk.setDirections(RiskConstants.SELECT_TERRITORY_DIRECTIONS);	
-									break;
+				case "attack":		
+					risk.setStage(RiskConstants.ATTACK);
+					risk.setStep(RiskConstants.SELECT_ATTACKING_TERRITORY);
+					risk.setDirections(RiskConstants.SELECT_TERRITORY_DIRECTIONS);	
+					break;
 
-				case "fortify":		risk.setStage(RiskConstants.MOVE_ARMIES);
-									risk.setStep(RiskConstants.SELECT_SOURCE_TERRITORY);
-									risk.setDirections(RiskConstants.SELECT_SOURCE_DIRECTIONS);
-									break;
+				case "fortify":		
+					risk.setStage(RiskConstants.MOVE_ARMIES);
+					risk.setStep(RiskConstants.SELECT_SOURCE_TERRITORY);
+					risk.setDirections(RiskConstants.SELECT_SOURCE_DIRECTIONS);
+					hasFortified = true;
+					break;
 
-				case "end turn":	risk.setDirections(RiskConstants.NO_DIRECTIONS);
-									risk.setStage(RiskConstants.SETUP_TURN);
-									risk.setStep(RiskConstants.BEFORE_TURN);
-									risk.moveToNextPlayer();
-									log.debug("New Current Player: " + risk.getCurrentPlayer());
-									assignAdditionalArmies(request, response, risk);
-									return;
+				case "end turn":	
+					risk.setDirections(RiskConstants.NO_DIRECTIONS);
+					risk.setStage(RiskConstants.SETUP_TURN);
+					risk.setStep(RiskConstants.BEFORE_TURN);
+					hasFortified = false;
+					risk.moveToNextPlayer();
+					log.debug("New Current Player: " + risk.getCurrentPlayer());
+					assignAdditionalArmies(request, response, risk);
+					return;
 			}
 		}
+		request.setAttribute("hasFortified", hasFortified);
+		log.debug("Has Fortified: " + hasFortified);
 		risk.getAppController().forwardUpdatedVariables(request, response, risk);
 
 	}

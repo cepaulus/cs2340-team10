@@ -1,11 +1,21 @@
-package test.java.edu.gatech.cs2340.risk.model;
+package edu.gatech.cs2340.risk.model;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import java.util.ArrayList;
+
 
 import main.java.edu.gatech.cs2340.risk.model.*;
+import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
+import main.java.edu.gatech.cs2340.risk.controller.AppController;
 
-//@RunWith(Junit4.class)
+@RunWith(JUnit4.class)
 public class EndOfGameTest {
+    AppController appController = new AppController();
+    Risk risk;
+    ArrayList<Player> players = new ArrayList<Player>();
 
     @Test
     public void testGameWon() {
@@ -93,7 +103,9 @@ public class EndOfGameTest {
         player.addTerritory(easternAus);
         player.addTerritory(indonesia);
         player.addTerritory(newGuinea);
-        player.addTerritory(westernAus); 
-        //TODO check if player is winner
+        player.addTerritory(westernAus);
+        players.add(player);
+        risk = new Risk(appController, players);
+        assertTrue(risk.getStage() == RiskConstants.GAME_OVER); 
     }
 }

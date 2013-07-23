@@ -45,12 +45,16 @@ public class Move {
 		source.removeNumberOfArmies(numArmies);
 	}
 
-	public boolean isValidMove() {
+	public boolean isValidSource() {
 		return source.getNumberOfArmies() > 1;
 	}
 
-	public boolean oneArmyAtSourceTerritory() {
-		return source.getNumberOfArmies() == 1;
+	public boolean isValidDestination() {
+		return source.getOwner().equals(destination.getOwner());
+	}
+
+	public boolean oneArmyLeftToMove() {
+		return source.getNumberOfArmies() == 2;
 	}
 
 	@Override

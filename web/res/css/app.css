@@ -392,15 +392,17 @@ a.optionBtn {
 }
 
 /* ATTACK DIALOG */
-#attackDialog form.cancelAttack {
+#attackDialog form.cancelAttack, #fortifyDialog form.cancelAttack {
 	display: inline;
 }
 
-#attackDialog .modal-footer {
+#attackDialog .modal-footer, #fortifyDialog .modal-footer {
 	margin-bottom: -20px;
 }
 
-#attackDialog label.radio {
+/*RADIO BUTTONS*/
+
+.modal label.radio {
 	display: inline-block;
 	margin: 10px;
 	padding: 10px 15px 10px 30px;
@@ -411,27 +413,27 @@ a.optionBtn {
 	text-shadow: #000 0px 0px 5px;
 }
 
-#attackDialog label.radio.owner1 {
+.modal label.radio.owner1 {
 	background: #24c612;
 }
 
-#attackDialog label.radio.owner2 {
+.modal label.radio.owner2 {
 	background: #126fc6;
 }
 
-#attackDialog label.radio.owner3 {
+.modal label.radio.owner3 {
 	background: #c61216;
 }
 
-#attackDialog label.radio.owner4 {
+.modal label.radio.owner4 {
 	background: #c6b312;
 }
 
-#attackDialog label.radio.owner5 {
+.modal label.radio.owner5 {
 	background: #7e12c6;
 }
 
-#attackDialog label.radio.owner6 {
+.modal label.radio.owner6 {
 	background: #12c692;
 }
 
