@@ -27,26 +27,37 @@ import main.java.edu.gatech.cs2340.risk.util.RiskUtil;
 /** 
  * 
  * This class receives and handles user input for the Risk game UI
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
  */
 @SuppressWarnings("serial")
 @WebServlet("/app")
 public class AppController extends HttpServlet {
 
 	private static Logger log = Logger.getLogger(AppController.class);
-
 	private Risk risk;
-
 	private PlayerServiceImpl playerService = new PlayerServiceImpl();
 	private TerritoryServiceImpl territoryService = new TerritoryServiceImpl();
-
 	private InitializeController initializeController = new InitializeController();
 	private TurnController turnController = new TurnController();
 	private AttackController attackController = new AttackController();
 	private MoveController moveController = new MoveController();
-
 	public static final boolean WIN_CASE = true;
 	private static final int NUMBER_OF_ARMIES = 3;
-
+	
+	/**
+	 * Retrieves players, puts them in a random order, distributes
+	 * armies and territories to players. 
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * @throws Servlet Exception
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response)
@@ -54,13 +65,10 @@ public class AppController extends HttpServlet {
 
 		log.debug("In doGet()");
 
-		// get players from jsons
 		ArrayList<Player> players = playerService.getPlayers();
-		// put players in a random order
 		players = PlayerUtil.setPlayerOrder(players);
 		log.debug("players after setPlayerOrder: " + players);
 
-		// distribute armies to players
 		log.debug("Adding armies to players");
 		players = ArmyUtil.addArmies(players, NUMBER_OF_ARMIES); 
 		log.debug("players after addArmies: " + players);
@@ -70,7 +78,6 @@ public class AppController extends HttpServlet {
 			players = territoryService.addWinCaseTerritories(players);
 		}
 		else {
-			// distribute territories to players
 			log.debug("Adding territories to players");
 			players = territoryService.addTerritories(players);
 			log.debug("players after addTerritories: " + players);
@@ -82,7 +89,16 @@ public class AppController extends HttpServlet {
 
 		forwardUpdatedVariables(request, response, risk);
 	}
-
+	
+	/**
+	 * If there are players remaining then doPost continues the game
+	 * by initiating stages of the game. 
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * @throws Servlet Exception
+	 */
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response)
@@ -118,23 +134,33 @@ public class AppController extends HttpServlet {
 			}
 		}
 	}
-
+	
+	/**
+	 * Checks to see if more than one player is remaining in the game
+	 * 
+	 * @return true if players > 1
+	 */
 	private boolean playersRemaining() {
+		
 		ArrayList<Player> playersCopy = new ArrayList<Player>(risk.getPlayers());
 
 		for (Player player : risk.getPlayers()) {
 			if (player.getTerritories().size() == 0) {
+				
 				log.debug("Removing json for player " + player);
 				RiskUtil.deleteJsonFromPackage(player.getPlayerId());
+				
 				log.debug("Players before: " + risk.getPlayers());
 				playersCopy.remove(player);
+				
 				log.debug("Remaining players: " + risk.getPlayers());
 			}
 		}
+		
 		risk.setPlayers(playersCopy);
-		if (playersCopy.size() == 1) {
+		
+		if (playersCopy.size() == 1) 
 			return false;
-		}
 		return true;
 	}
 
@@ -144,12 +170,13 @@ public class AppController extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
-	 * @param risk  Risk object containing variables for the current game session
+	 * @param risk-Risk object containing variables for the current game session
 	 * @throws IOException
 	 * @throws ServletException
 	 */
 	public void forwardUpdatedVariables(HttpServletRequest request,
-			HttpServletResponse response, Risk risk) throws IOException, ServletException {
+			HttpServletResponse response, Risk risk) throws IOException,
+			ServletException {
 
 		request.setAttribute("currentPlayer", risk.getCurrentPlayer());
 		request.setAttribute("players", risk.getPlayers());
@@ -157,6 +184,7 @@ public class AppController extends HttpServlet {
 
 		RequestDispatcher dispatcher = 
 				getServletContext().getRequestDispatcher("/app.jsp");
+		
 		dispatcher.forward(request,response);
 	}
 	

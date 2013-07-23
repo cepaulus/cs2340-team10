@@ -1,13 +1,16 @@
-package test.java.edu.gatech.cs2340.risk.model;
+package edu.gatech.cs2340.risk.model;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.CountryUtil;
 
-//@RunWith(Junit4.class)
+@RunWith(JUnit4.class)
+
 public class ArmyCalculationTest {
 
     @Test

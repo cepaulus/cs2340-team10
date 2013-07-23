@@ -13,21 +13,34 @@ import main.java.edu.gatech.cs2340.risk.dao.mock.TerritoryDAOMock;
 import main.java.edu.gatech.cs2340.risk.model.Risk;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.RiskConstants;
+import main.java.edu.gatech.cs2340.risk.util.TerritoryUtil;
 
 /**
  * Stage 1 (RiskConstants.INITIALIZE)
  *
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
  */
 public class InitializeController extends HttpServlet {
 	
 	private static Logger log = Logger.getLogger(InitializeController.class);
-	
 	private TurnController rotateController = new TurnController();
 	
-	
+	/**
+	 * Distributes original armies at the beginning of the game
+	 * 
+	 * @param request
+	 * @param response
+	 * @param risk
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	public void doPost(HttpServletRequest request,
-			HttpServletResponse response, Risk risk) throws IOException, ServletException {
-		
+			HttpServletResponse response, Risk risk) 
+					throws IOException, ServletException {
 		distributeInitialArmies(request, response, risk);
 		return;
 	}
@@ -43,24 +56,27 @@ public class InitializeController extends HttpServlet {
 	 * @throws ServletException
 	 */
 	protected void distributeInitialArmies(HttpServletRequest request,
-			HttpServletResponse response, Risk risk) throws IOException, ServletException {
+			HttpServletResponse response, Risk risk) 
+					throws IOException, ServletException {
 
 		log.debug("In distributeInitialArmies()");
 
-		risk.setCurrentPlayer(Integer.parseInt(request.getParameter("currentPlayerId")));
+		int currentPlayerID = 
+				Integer.parseInt(request.getParameter("currentPlayerId"));
+		risk.setCurrentPlayer(currentPlayerID);
 		log.debug("Current player: " + risk.getCurrentPlayer());
 
-		TerritoryDAOMock territoryDAO = new TerritoryDAOMock();
-		Territory currentTerritory = territoryDAO.getTerritory(risk.getCurrentPlayer(), 
-				Integer.parseInt(request.getParameter("territoryId")));
+		int territoryId = Integer.parseInt(request.getParameter("territoryId"));
+		Territory currentTerritory = 
+				TerritoryUtil.getTerritoryById(risk.getCurrentPlayer(), territoryId);
 
-		if (currentTerritory != null && risk.getCurrentPlayer().getAvailableArmies() > 0) {
+		if (currentTerritory != null && 
+				risk.getCurrentPlayer().getAvailableArmies() > 0) {
 
 			log.debug("Current territory: " + currentTerritory);
 
 			currentTerritory.addArmy();
 			risk.getCurrentPlayer().removeArmy();
-
 			risk.moveToNextPlayer();
 
 			if (risk.getCurrentPlayer().getAvailableArmies() < 1) {
@@ -70,9 +86,9 @@ public class InitializeController extends HttpServlet {
 				rotateController.doPost(request, response, risk);
 				return;
 			}
-		} else {
+		} else 
 			log.debug("Territory does not belong to player");
-		}
+		
 		log.debug("New current player: " + risk.getCurrentPlayer());
 
 		risk.getAppController().forwardUpdatedVariables(request, response, risk);
