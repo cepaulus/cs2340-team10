@@ -140,7 +140,7 @@
 			</div>
 
 			
-				<div id="map" class="span9 offset<%= isMapCentered ? "2" : "3" %>">
+				<div id="map" class="span9 offset3">
 					<%for (Player player : players) {%>
 						<%for (Territory territory : player.getTerritories()) {%>
 						<div class="territory <%out.write("player" + (player.getPlayerId()));%> <%out.write("territory" + territory.getTerritoryId());%>">
