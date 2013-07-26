@@ -48,6 +48,8 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/slider.css" />
 <link rel="stylesheet" type="text/css" href="css/app.css" />
+<link rel="stylesheet" type="text/css" href="css/map.css" />
+<link rel="stylesheet" type="text/css" href="css/player.css" />
 <link rel="stylesheet" type="text/css" href="css/territoryPositions.css" />
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
