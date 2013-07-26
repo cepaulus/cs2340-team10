@@ -5,6 +5,15 @@ import java.util.ArrayList;
 
 import main.java.edu.gatech.cs2340.risk.model.Player;
 
+/**
+ * Player Interface
+ * 
+ * @author Caroline Paulus
+ * @author Brittany Wood
+ * @author Julian Popescu
+ * @author Alec Fenichal
+ * @author Andrew Osborn
+ */
 public interface PlayerDAO {
 	/**
 	 * Returns list of all players currently participating in the game
@@ -14,14 +23,14 @@ public interface PlayerDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public ArrayList<Player> getPlayers() 
-			throws SQLException, ClassNotFoundException; // returns all players
+			throws SQLException, ClassNotFoundException; 
 	/**
 	 * Returns the player with ID matching playerId
 	 * 
 	 * @param playerId
 	 * @return
 	 */
-	public Player getPlayer(int playerId); // returns player with id = playerId
+	public Player getPlayer(int playerId); 
 	/**
 	 * Adds the player to the database of players and returns it
 	 * 

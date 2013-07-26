@@ -1,10 +1,15 @@
 /* Contains the CSS for the Risk Game page */
 #wrap {
-	width: 1024px;
 	margin: 0 auto;
+	padding-top: 130px;
+}
+
+#playerContainer {
+	min-height: 12%;
 }
 
 #players div.player {
+	text-align: center;
 	background: #ffffff; /* Old browsers */
 	background: -moz-linear-gradient(top, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
 	/* FF3.6+ */
@@ -19,13 +24,16 @@
 	/* IE10+ */
 	background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 47%, #f7f7f7 100%);
 	/* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(     startColorstr='#ffffff',
-		endColorstr='#f7f7f7', GradientType=0); /* IE6-9 */
-	border: 1px solid #CCC;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+	endColorstr='#f7f7f7',
+	GradientType=0); /* IE6-9 */
 	border-bottom: 10px solid #CCC;
-	border-top: none;
-	-webkit-border-radius: 0 0 15px 15px;
-	border-radius: 0 0 15px 15px;
+	height: 100%;
+}
+
+#players div.player h3 {
+	line-height: 20px;
+	margin-top: 3%;
 }
 
 /* PLAYER COLORS */
@@ -76,11 +84,17 @@
 #players div.player6.active {
 	border-bottom-color: #00d7da;
 }
-
 /* MAP STYLES */
+#map-container {
+	overflow: scroll;
+}
+
 #map {
 	margin-top: 20px;
-	background: url('../img/riskmap.png') no-repeat;
+	background: url('../img/riskmap.png');
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
 	height: 618px;
 	width: 1024px;
 }
@@ -91,12 +105,21 @@ div.territory {
 	height: 0px;
 }
 
+div.territory form {
+	height: 52px;
+	width: 35px;
+	background-size: cover !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+}
+
+
 div.territory form .territoryButton {
 	height: 35px;
 	min-width: 35px;
 	margin: 25px 0px 0px 10px;
 	border-radius: 50%;
-	webkit-border-radius: 50%;
+	-webkit-border-radius: 50%;
 	background: #666;
 	color: #FFF;
 	text-shadow: #000 0px 0px 5px;
@@ -106,9 +129,9 @@ div.territory form .territoryButton {
 	box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
 }
 
+
+
 div.territory.player1 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/greenPlayer.png');
 }
 
@@ -117,8 +140,6 @@ div.territory.player1 form .territoryButton {
 }
 
 div.territory.player2 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/bluePlayer.png');
 }
 
@@ -127,8 +148,6 @@ div.territory.player2 form .territoryButton {
 }
 
 div.territory.player3 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/redPlayer.png');
 }
 
@@ -137,8 +156,6 @@ div.territory.player3 form .territoryButton {
 }
 
 div.territory.player4 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/yellowPlayer.png');
 }
 
@@ -147,8 +164,6 @@ div.territory.player4 form .territoryButton {
 }
 
 div.territory.player5 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/purplePlayer.png');
 }
 
@@ -157,8 +172,6 @@ div.territory.player5 form .territoryButton {
 }
 
 div.territory.player6 form {
-	height: 52px;
-	width: 35px;
 	background: url('../img/cyanPlayer.png');
 }
 
@@ -166,215 +179,7 @@ div.territory.player6 form .territoryButton {
 	background: #12c692;
 }
 
-/* TERRITORY PLACING */
-div.territory.territory1 {
-	top: 50px;
-	left: 50px;
-}
 
-div.territory.territory2 {
-	top: 120px;
-	left: 150px;
-}
-
-div.territory.territory3 {
-	top: 250px;
-	left: 150px;
-}
-
-div.territory.territory4 {
-	top: 190px;
-	left: 250px;
-}
-
-div.territory.territory5 {
-	left: 400px;
-}
-
-div.territory.territory6 {
-	top: 60px;
-	left: 180px;
-}
-
-div.territory.territory7 {
-	top: 120px;
-	left: 230px;
-}
-
-div.territory.territory8 {
-	top: 120px;
-	left: 310px;
-}
-
-div.territory.territory9 {
-	top: 180px;
-	left: 140px;
-}
-
-div.territory.territory10 {
-	top: 500px;
-	left: 250px;
-}
-
-div.territory.territory11 {
-	top: 400px;
-	left: 310px;
-}
-
-div.territory.territory12 {
-	top: 390px;
-	left: 185px;
-}
-
-div.territory.territory13 {
-	top: 320px;
-	left: 195px;
-}
-
-div.territory.territory14 {
-	top: 410px;
-	left: 475px;
-}
-
-div.territory.territory15 {
-	top: 355px;
-	left: 530px;
-}
-
-div.territory.territory16 {
-	top: 290px;
-	left: 490px;
-}
-
-div.territory.territory17 {
-	top: 485px;
-	left: 565px;
-}
-
-div.territory.territory18 {
-	top: 305px;
-	left: 400px;
-}
-
-div.territory.territory19 {
-	top: 490px;
-	left: 470px;
-}
-
-div.territory.territory20 {
-	top: 145px;
-	left: 410px;
-}
-
-div.territory.territory21 {
-	top: 85px;
-	left: 405px;
-}
-
-div.territory.territory22 {
-	top: 155px;
-	left: 465px;
-}
-
-div.territory.territory23 {
-	top: 70px;
-	left: 490px;
-}
-
-div.territory.territory24 {
-	top: 215px;
-	left: 485px;
-}
-
-div.territory.territory25 {
-	top: 100px;
-	left: 570px;
-}
-
-div.territory.territory26 {
-	top: 220px;
-	left: 425px;
-}
-
-div.territory.territory27 {
-	top: 200px;
-	left: 635px;
-}
-
-div.territory.territory28 {
-	top: 230px;
-	left: 720px;
-}
-
-div.territory.territory29 {
-	top: 265px;
-	left: 660px;
-}
-
-div.territory.territory30 {
-	top: 125px;
-	left: 795px;
-}
-
-div.territory.territory31 {
-	top: 220px;
-	left: 900px;
-}
-
-div.territory.territory32 {
-	top: 90px;
-	left: 915px;
-}
-
-div.territory.territory33 {
-	top: 280px;
-	left: 580px;
-}
-
-div.territory.territory34 {
-	top: 185px;
-	left: 810px;
-}
-
-div.territory.territory35 {
-	top: 320px;
-	left: 760px;
-}
-
-div.territory.territory36 {
-	top: 55px;
-	left: 720px;
-}
-
-div.territory.territory37 {
-	top: 115px;
-	left: 660px;
-}
-
-div.territory.territory38 {
-	top: 70px;
-	left: 825px;
-}
-
-div.territory.territory39 {
-	top: 500px;
-	left: 895px;
-}
-
-div.territory.territory40 {
-	top: 390px;
-	left: 770px;
-}
-
-div.territory.territory41 {
-	top: 400px;
-	left: 910px;
-}
-
-div.territory.territory42 {
-	top: 490px;
-	left: 780px;
-}
 
 /* SLIDER */
 span.sliderContext {
@@ -384,62 +189,24 @@ span.sliderContext {
 
 /* OPTION DIALOG */
 input.optionBtn {
-	width: 200px;
-	margin: auto 150px;
-}
-
-a.optionBtn {
-	margin: 10px 150px 20px 150px;
-	width: 160px
+	width: 60%;
+	margin-left: 20%;
 }
 
 /* ATTACK DIALOG */
-#attackDialog form.cancelAttack {
+#attackDialog form.cancelAttack,#fortifyDialog form.cancelAttack {
 	display: inline;
 }
 
-#attackDialog .modal-footer {
+#attackDialog .modal-footer,#fortifyDialog .modal-footer {
 	margin-bottom: -20px;
 }
 
-#attackDialog label.radio {
-	display: inline-block;
-	margin: 10px;
-	padding: 10px 15px 10px 30px;
-	background: #CCC;
-	border-radius: 10px;
-	-webkit-border-radius: 10px;
-	color: #FFF;
-	text-shadow: #000 0px 0px 5px;
-}
-
-#attackDialog label.radio.owner1 {
-	background: #24c612;
-}
-
-#attackDialog label.radio.owner2 {
-	background: #126fc6;
-}
-
-#attackDialog label.radio.owner3 {
-	background: #c61216;
-}
-
-#attackDialog label.radio.owner4 {
-	background: #c6b312;
-}
-
-#attackDialog label.radio.owner5 {
-	background: #7e12c6;
-}
-
-#attackDialog label.radio.owner6 {
-	background: #12c692;
-}
 
 /* ATTACK RESULTS */
-h4#attackResultsMessage {
+h5#attackResultsMessage {
 	float: left;
+	font-size: 16px;
 }
 
 div.dice {
@@ -467,41 +234,54 @@ div.dice {
 }
 
 .attackRolls div.value2 {
-	background: url("../img/diceRed.jpg") 242px 0px;
+	background: url("../img/diceRed.jpg") 50% 0px;
 }
 
 .defenceRolls div.value2 {
-	background: url("../img/diceWhite.jpg") 242px 0px;
+	background: url("../img/diceWhite.jpg") 50% 0px;
 }
 
 .attackRolls div.value3 {
-	background: url("../img/diceRed.jpg") 120px 0px;
+	background: url("../img/diceRed.jpg") 100% 0px;
 }
 
 .defenceRolls div.value3 {
-	background: url("../img/diceWhite.jpg") 120px 0px;
+	background: url("../img/diceWhite.jpg") 100% 0px;
 }
 
 .attackRolls div.value4 {
-	background: url("../img/diceRed.jpg") 0px 120px;
+	background: url("../img/diceRed.jpg") 0px 100%;
 }
 
 .defenceRolls div.value4 {
-	background: url("../img/diceWhite.jpg") 0px 120px;
+	background: url("../img/diceWhite.jpg") 0px 100%;
 }
 
 .attackRolls div.value5 {
-	background: url("../img/diceRed.jpg") 243px 120px;
+	background: url("../img/diceRed.jpg") 50% 100%;
 }
 
 .defenceRolls div.value5 {
-	background: url("../img/diceWhite.jpg") 243px 120px;
+	background: url("../img/diceWhite.jpg") 50% 100%;
 }
 
 .attackRolls div.value6 {
-	background: url("../img/diceRed.jpg") 120px 120px;
+	background: url("../img/diceRed.jpg") 100% 100%;
 }
 
 .defenceRolls div.value6 {
-	background: url("../img/diceWhite.jpg") 120px 120px;
+	background: url("../img/diceWhite.jpg") 100% 100%;
+}
+
+/* SIDEBAR */
+#sidebar {
+	height: 75%;
+	position: fixed;
+	z-index: 999;
+	overflow-y: auto;
+}
+
+#sidebarPlaceHolder {
+	position: absolute;
+	top: 23%;
 }

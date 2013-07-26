@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import main.java.edu.gatech.cs2340.risk.controller.AppController;
 import main.java.edu.gatech.cs2340.risk.dao.mock.TerritoryDAOMock;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
@@ -32,15 +31,19 @@ public class TerritoryServiceImpl implements TerritoryService {
 	}
 
 	@Override
+	public Territory getTerritory(Player currentPlayer, int territoryId) {
+		return territoryDAO.getTerritory(currentPlayer, territoryId);
+	}
+	
+	@Override
 	public ArrayList<Player> addTerritories(ArrayList<Player> players) {
 		log.debug("Adding territories to players");
 		return territoryDAO.addTerritories(players);
 	}
 
-
 	@Override
-	public Player addTerritories(Player player) {
-		return territoryDAO.addTerritories(player);
+	public ArrayList<Player> addWinCaseTerritories(ArrayList<Player> players) {
+		return territoryDAO.addWinCaseTerritories(players);
 	}
 
 }
