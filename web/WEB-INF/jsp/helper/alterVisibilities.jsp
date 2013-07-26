@@ -3,7 +3,7 @@
 boolean drawn;
 switch (show) {
 	case 0:%>
-		<input class="territoryButton btn btn-link"
+		<input class="territoryButton btn btn-link" disabled
 			type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%break;
 	case 1:
@@ -11,7 +11,7 @@ switch (show) {
 			<input class="territoryButton btn btn-link" type="submit"
 				value="<%=territory.getNumberOfArmies()%>" />
 		<%} else {%>
-			<input class="territoryButton btn btn-link"
+			<input class="territoryButton btn btn-link" disabled
 				type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%}
 		break;
@@ -20,7 +20,7 @@ switch (show) {
 			<input class="territoryButton btn btn-link" type="submit"
 				value="<%=territory.getNumberOfArmies()%>" />
 		<%} else {%>
-			<input class="territoryButton btn btn-link"
+			<input class="territoryButton btn btn-link" disabled
 				type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%}
 		break;
@@ -38,7 +38,7 @@ switch (show) {
 			}
 		}
 		if(!drawn) {%>
-			<input class="territoryButton btn btn-link"
+			<input class="territoryButton btn btn-link" disabled
 				type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%}
 		break;
@@ -47,7 +47,7 @@ switch (show) {
 			<input class="territoryButton btn btn-link" type="submit"
 				value="<%=territory.getNumberOfArmies()%>" />
 		<%} else {%>
-			<input class="territoryButton btn btn-link"
+			<input class="territoryButton btn btn-link" disabled
 				type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%}
 		break;
@@ -65,7 +65,7 @@ switch (show) {
 			}
 		}
 		if(!drawn) {%>
-			<input class="territoryButton btn btn-link"
+			<input class="territoryButton btn btn-link" disabled
 				type="submit" value="<%=territory.getNumberOfArmies()%>" />
 		<%}
 		break;

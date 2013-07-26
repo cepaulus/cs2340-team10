@@ -1,0 +1,98 @@
+/* Contains the CSS for the map */
+
+#map-container {
+	overflow: scroll;
+}
+
+#map {
+	margin-top: 20px;
+	background: url('../img/riskmap.png');
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	height: 618px;
+	width: 1024px;
+}
+
+div.territory {
+	position: relative;
+	width: 0px;
+	height: 0px;
+}
+
+div.territory form {
+	height: 52px;
+	width: 35px;
+	background-size: cover !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+}
+
+div.territory form .territoryButton {
+	height: 35px;
+	min-width: 35px;
+	margin: 25px 0px 0px 10px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background: #666;
+	color: #FFF;
+	text-shadow: #000 0px 0px 5px;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 1px 5px rgba(50, 50, 50, 0.75);
+}
+
+div.territory form .territoryButton:disabled {
+	opacity: 1;
+	color: #FFF;
+	cursor: not-allowed;
+}
+
+div.territory.player1 form {
+	background: url('../img/greenPlayer.png');
+}
+
+div.territory.player1 form .territoryButton {
+	background: #24c612;
+}
+
+div.territory.player2 form {
+	background: url('../img/bluePlayer.png');
+}
+
+div.territory.player2 form .territoryButton {
+	background: #126fc6;
+}
+
+div.territory.player3 form {
+	background: url('../img/redPlayer.png');
+}
+
+div.territory.player3 form .territoryButton {
+	background: #c61216;
+}
+
+div.territory.player4 form {
+	background: url('../img/yellowPlayer.png');
+}
+
+div.territory.player4 form .territoryButton {
+	background: #c6b312;
+}
+
+div.territory.player5 form {
+	background: url('../img/purplePlayer.png');
+}
+
+div.territory.player5 form .territoryButton {
+	background: #7e12c6;
+}
+
+div.territory.player6 form {
+	background: url('../img/cyanPlayer.png');
+}
+
+div.territory.player6 form .territoryButton {
+	background: #12c692;
+}
