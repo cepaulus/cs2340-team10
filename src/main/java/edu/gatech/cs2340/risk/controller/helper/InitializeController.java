@@ -79,6 +79,8 @@ public class InitializeController extends HttpServlet {
 		int territoryId = Integer.parseInt(request.getParameter("territoryId"));
 		Territory currentTerritory = 
 				TerritoryUtil.getTerritoryById(risk.getCurrentPlayer(), territoryId);
+		
+		risk.setDirections(RiskConstants.ADDITIONAL_ARMIES_DIRECTIONS);
 
 		if (currentTerritory != null && 
 				risk.getCurrentPlayer().getAvailableArmies() > 0) {

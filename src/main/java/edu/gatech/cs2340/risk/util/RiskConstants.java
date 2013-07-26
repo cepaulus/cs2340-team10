@@ -32,8 +32,7 @@ public interface RiskConstants {
 
 	// direction numbers
 	public static final int NO_DIRECTIONS = 0;
-	public static final int INITIAL_DIRECTIONS = 1;
-	public static final int ADDITIONAL_ARMIES_DIRECTIONS = 2;
-	public static final int SELECT_TERRITORY_DIRECTIONS = 3;
-	public static final int SELECT_SOURCE_DIRECTIONS = 4;
+	public static final int ADDITIONAL_ARMIES_DIRECTIONS = 1;
+	public static final int SELECT_TERRITORY_DIRECTIONS = 2;
+	public static final int SELECT_SOURCE_DIRECTIONS = 3;
 }

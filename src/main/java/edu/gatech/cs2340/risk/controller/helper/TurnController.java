@@ -115,7 +115,9 @@ public class TurnController extends HttpServlet {
 		int territoryId = Integer.parseInt(request.getParameter("territoryId"));
 		Territory currentTerritory =
 				TerritoryUtil.getTerritoryById(risk.getCurrentPlayer(), territoryId);
-
+		
+		risk.setDirections(RiskConstants.NO_DIRECTIONS);
+		
 		if (currentTerritory != null && risk.getCurrentPlayer().getAvailableArmies() > 0) {
 
 			log.debug("Current territory: " + currentTerritory);
@@ -126,6 +128,8 @@ public class TurnController extends HttpServlet {
 			if (risk.getCurrentPlayer().getAvailableArmies() == 0) {
 				risk.setStage(RiskConstants.SETUP_TURN);
 				risk.setStep(RiskConstants.SHOW_OPTIONS);
+			} else {
+				risk.setDirections(RiskConstants.ADDITIONAL_ARMIES_DIRECTIONS);
 			}
 
 		} else 

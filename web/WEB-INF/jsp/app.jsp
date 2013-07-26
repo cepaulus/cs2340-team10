@@ -24,21 +24,18 @@
 	case 0:
 		break;
 	case 1:
-		directionsText = "When it is your turn, click on any territory belonging to you to add an army to it.";
+		directionsText = currentPlayer.getPlayerName()
+		+ ", select a territory to fortify. You have "
+		+ currentPlayer.getAvailableArmies()
+		+ " additional "
+		+ (currentPlayer.getAvailableArmies() > 1 ? "armies"
+				: "army") + " to distribute.";
 		break;
 	case 2:
 		directionsText = currentPlayer.getPlayerName()
-				+ ", you have "
-				+ currentPlayer.getAvailableArmies()
-				+ " additional "
-				+ (currentPlayer.getAvailableArmies() > 1 ? "armies"
-						: "army") + " to distribute.";
-		break;
-	case 3:
-		directionsText = currentPlayer.getPlayerName()
 				+ ", select a territory to attack from.";
 		break;
-	case 4:
+	case 3:
 		directionsText = currentPlayer.getPlayerName()
 				+ ", select a territory to transfer armies from.";
 		break;
