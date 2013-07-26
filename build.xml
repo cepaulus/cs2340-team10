@@ -1,5 +1,4 @@
 <project name="risk" default="compile" basedir=".">
-
 	<property environment="env" />
 	<property name="app.name" value="risk" />
 	<property name="app.path" value="/${app.name}" />
@@ -10,7 +9,6 @@
 	<property name="web.dir" value="${basedir}/web/" />
 	<property name="src.test" value="${basedir}/src/test/" />
 	<property name="dir.reports" value="${basedir}/target/reports/" />
-
 	<!-- Define the CLASSPATH -->
 	<path id="compile.classpath">
 		<fileset dir="${catalina.home}/bin">
@@ -26,14 +24,11 @@
 		</fileset>
 		<pathelement path="${build.home}/WEB-INF/classes" />
 	</path>
-
 	<target name="clean" description="Delete old build and dist directories">
 		<delete dir="${build.home}" />
 		<delete dir="${catalina.home}/webapps/${app.name}" />
 	</target>
-
 	<target name="compile" description="Compile Java sources">
-
 		<!-- Compile Java classes as necessary -->
 		<mkdir dir="${build.home}/WEB-INF/classes" />
 		<javac srcdir="${src.home}" destdir="${build.home}/WEB-INF/classes"
@@ -41,36 +36,25 @@
 			<classpath refid="compile.classpath" />
 		</javac>
 	</target>
-
 	<target name="compile-tests" depends="compile" description="Compile tests">
-
 		<!-- Compile Java classes as necessary -->
 		<mkdir dir="${build.home}/WEB-INF/classes" />
 		<javac srcdir="${src.test}" destdir="${build.home}/WEB-INF/classes">
 			<classpath refid="compile.classpath" />
 		</javac>
-
 	</target>
-
 	<target name="test" depends="compile-tests">
 		<mkdir dir="${dir.reports}" />
 		<junit printsummary="yes" haltonfailure="no">
-
 			<classpath refid="compile.classpath" />
-
 			<formatter type="plain" />
-
 			<batchtest fork="yes" todir="${dir.reports}">
 				<fileset dir="${src.test}/java">
 					<include name="**/*Test.java" />
 				</fileset>
 			</batchtest>
-
 		</junit>
-
 	</target>
-
-
 	<target name="prepare" depends="compile">
 		<copy todir="${build.home}">
 			<fileset dir="${basedir}/web/WEB-INF" />
@@ -97,13 +81,10 @@
 			<fileset dir="${basedir}/web/img" />
 		</copy>
 	</target>
-
 	<target name="deploy" depends="prepare">
 		<mkdir dir="${catalina.home}/webapps/${app.name}" />
-
 		<copy todir="${catalina.home}/webapps/${app.name}">
 			<fileset dir="${build.home}" />
 		</copy>
 	</target>
-
 </project>

@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.risk.service;
+package test.java.edu.gatech.cs2340.risk.model;
 
 import static org.junit.Assert.*; 
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.service.impl.PlayerServiceImpl;
 import main.java.edu.gatech.cs2340.risk.util.ArmyUtil;
-import main.java.edu.gatech.cs2340.risk.util.RiskUtil;
+//import main.java.edu.gatech.cs2340.risk.util.RiskMockUtil;
 
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class PlayerTest {
 		//RiskUtil.buildDatabase();
 		//RiskUtil.checkForExistingTable("Players");
 		//RiskUtil.checkForExistingColumn("Players", "ArmyCount", "Integer");
-		RiskUtil.restoreDefaults();
+		//RiskMockUtil.restoreDefaults();
 
 		PlayerServiceImpl playerService = new PlayerServiceImpl();
 

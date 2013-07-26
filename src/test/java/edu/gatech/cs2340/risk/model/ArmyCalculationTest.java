@@ -9,7 +9,8 @@ import main.java.edu.gatech.cs2340.risk.model.Player;
 import main.java.edu.gatech.cs2340.risk.model.Territory;
 import main.java.edu.gatech.cs2340.risk.util.CountryUtil;
 
-//@RunWith(Junit4.class)
+@RunWith(JUnit4.class)
+
 public class ArmyCalculationTest {
 
     @Test
@@ -36,5 +37,67 @@ public class ArmyCalculationTest {
         int points = CountryUtil.getPointsForCountries(player);
         assertEquals("Testing North America", 5, points);
     }
+
+    @Test
+    public void testSouthAmerica() {
+        Player player = new Player(1, "SouthAmericaOwner)");
+        Territory argentina = new Territory(10, "Argentina");
+        Territory brazil = new Territory(11, "Brazil");
+        Territory peru = new Territory(12, "Peru");
+        Territory venezuela = new Territory(13, "Venezuela");
+        player.addTerritory(argentina);
+        player.addTerritory(brazil);
+        player.addTerritory(peru);
+        player.addTerritory(venezuela);
+        int points = CountryUtil.getPointsForCountries(player);
+        assertEquals("South America calculation failed.", 2, points);
+    }
+
+    @Test
+    public void testAfrica() {
+        Player player = new Player(1, "AfricaOwner");
+        Territory congo = new Territory(14, "Congo");
+        Territory eastAfrica = new Territory(15, "East Africa");
+        Territory egypt = new Territory(16, "Egypt");
+        Territory madagascar = new Territory(17, "Madagascar");
+        Territory northAfrica = new Territory(18, "North Africa");
+        Territory southAfrica = new Territory(19, "South Africa");
+        player.addTerritory(congo);
+        player.addTerritory(eastAfrica);
+        player.addTerritory(egypt);
+        player.addTerritory(madagascar);
+        player.addTerritory(northAfrica);
+        player.addTerritory(southAfrica);
+        int points = CountryUtil.getPointsForCountries(player);
+        assertEquals("Africa calculation failed.", 3, points);
+    }
+
+    @Test
+    public void testMultipleCountries() {
+        Player player = new Player(1, "AfricaAndSouthAmOwner");
+        Territory congo = new Territory(14, "Congo");
+        Territory eastAfrica = new Territory(15, "East Africa");
+        Territory egypt = new Territory(16, "Egypt");
+        Territory madagascar = new Territory(17, "Madagascar");
+        Territory northAfrica = new Territory(18, "North Africa");
+        Territory southAfrica = new Territory(19, "South Africa");
+        Territory argentina = new Territory(10, "Argentina");
+        Territory brazil = new Territory(11, "Brazil");
+        Territory peru = new Territory(12, "Peru");
+        Territory venezuela = new Territory(13, "Venezuela");
+        player.addTerritory(argentina);
+        player.addTerritory(brazil);
+        player.addTerritory(peru);
+        player.addTerritory(venezuela);
+        player.addTerritory(congo);
+        player.addTerritory(eastAfrica);
+        player.addTerritory(egypt);
+        player.addTerritory(madagascar);
+        player.addTerritory(northAfrica);
+        player.addTerritory(southAfrica);
+        int points = CountryUtil.getPointsForCountries(player);
+        assertEquals("Adding armies for multiple countries failed.", 5, points); 
+    }
+
 
 }

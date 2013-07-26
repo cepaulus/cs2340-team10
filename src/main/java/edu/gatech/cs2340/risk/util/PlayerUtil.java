@@ -1,10 +1,8 @@
 package main.java.edu.gatech.cs2340.risk.util;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Random;
-
 import org.apache.log4j.Logger;
 
 import main.java.edu.gatech.cs2340.risk.model.Player;
@@ -13,33 +11,8 @@ import main.java.edu.gatech.cs2340.risk.model.Territory;
 public class PlayerUtil {
 
 	private static Logger log = Logger.getLogger(PlayerUtil.class);
-
-	private static final Random RANDOM = new Random();
 	private static Player selectedPlayer;
 	private static Player nextPlayer;
-
-	/**
-	 * Simulates rolling a dice
-	 * 
-	 * @return Random number between 1 and 6
-	 */
-	public static int rollDie() {
-		return RANDOM.nextInt(6) + 1;
-	}
-
-	/**
-	 * Returns the results for rolling a certain number of dice
-	 * 
-	 * @param numDice  Number of dice being rolled
-	 * @return List of results corresponding to the number of dice
-	 */
-	public static int[] rollDice(int numDice) {
-		int[] rollResults = new int[numDice];
-		for (int i = 0; i < numDice; i ++) {
-			rollResults[i] = rollDie();
-		}
-		return rollResults;
-	}
 
 	/**
 	 * Returns a list of players randomly sorted
@@ -53,7 +26,7 @@ public class PlayerUtil {
 		log.debug("Setting player order for " + players.size() + " players");
 		// each player rolls the dice and is assigned a temporary roll value
 		for (Player player : players) {
-			player.setRollOrder(PlayerUtil.rollDie());
+			player.setRollOrder(DiceUtil.rollDie());
 		}
 		// sort the list of players based on the values they rolled
 		Collections.sort(players, new Comparator<Player>() {

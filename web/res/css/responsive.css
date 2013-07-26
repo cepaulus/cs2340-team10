@@ -1,0 +1,87 @@
+ /* Large Displays */
+@media all and (min-width: 1445px) {
+	#map {
+		width: 1024px;
+		height: 618px;
+	}
+
+	.slider {
+		width: 210px !important;
+	}
+
+
+}
+
+ /* Large Displays */
+@media all and (min-width: 1200px) and (max-width: 1444px) {
+	#map {
+		width: 840px;
+		height: 507px;
+	}
+
+	.slider {
+		width: 170px !important;
+	}
+
+	.dice div {
+		width: 100px;
+		height: 100px;
+		background-size: 300px 200px !important;
+	}
+}
+
+
+/* Default Displays */
+@media all and (max-width: 1199px) {
+	#map {
+		width: 700px;
+		height: 422px;
+	}
+
+	.slider {
+		width: 110px !important;
+	}
+
+	div.territory form {
+		height: 40px;
+		width: 26px;
+	}
+
+	div.territory form .territoryButton {	
+		height: 30px;
+		min-width: 30px;
+		margin: 15px 0px 0px 5px;
+	}
+
+	.dice div {
+		width: 75px;
+		height: 75px;
+		background-size: 225px 150px !important;
+	}
+
+}
+
+/* Tablet Displays */
+@media all and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Mobile Displays */
+@media all and (max-width: 767px) {
+
+}
+
+
+/* Resizing header */ 
+@media all and (max-height: 640px) {
+	#players div.player h3{
+		margin-right: 5%;
+		display: inline-block;
+	}
+	#players div.player h4{
+		display: inline-block;
+	}
+	#wrap {
+		padding-top: 100px;
+	}
+}
